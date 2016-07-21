@@ -1,0 +1,184 @@
+\documentclass[11pt,answers]{exam}
+
+% Load useful packages
+% Read in necessary packages
+\usepackage{import}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{subfigure}
+\usepackage{tikz}
+
+% Set various options for exam package
+\shadedsolutions % defines the style of the solution environment
+
+% Set lesson name, etc.
+\newcommand{\coursename}{Math 312}
+\newcommand{\lessonname}{Problem Set 2}
+\newcommand{\duedate}{9 February 2016}
+\newcommand{\names}{Ian Gallmeister}
+
+% Set headers/footers to look nice
+\pagestyle{headandfoot}
+\firstpageheader{\textbf{\large \coursename\ \lessonname}}{}{\textbf{\large Due \duedate}}
+\firstpageheadrule
+\runningheader{\textbf{\large \coursename\ \lessonname}}{}{\textbf{\large Due \duedate}}
+\runningheadrule
+\firstpagefooter{\names}{}{Page \thepage\ of \numpages}
+\firstpagefootrule
+\runningfooter{\names}{}{Page \thepage\ of \numpages}
+\runningfootrule
+
+% Define commands related to marking up content
+\newcommand{\source}[1]{}
+
+% Define commands related to general mathematical style
+\renewcommand{\exp}[1]{e^{#1}}
+
+\renewcommand{\theenumi}{(\alph{enumi})}
+\renewcommand{\labelenumi}{\theenumi}
+\renewcommand{\thequestion}{\arabic{question}}
+\renewcommand{\questionlabel}{(\thequestion)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{questions}
+
+\addtocounter{question}{22}
+
+\item For $\dot{x} = \sin{x}$
+\newline\textsc{(a)} Find all fixed points of the flow.
+\newline\textsc{(b)} At which points does the flow have the greatest velocity to the right?
+\newline\textsc{(c)} \textrm{I} Find the flow's acceleration $\ddot{x}$ as a function of $x$.
+\newline \hspace*{1.1em} \textrm{II} Find the points where the flow has the maximum positive acceleration.
+
+\begin{solution}
+\newline\textsc{(a)} The fixed points are $x = \{z\pi | z \in \mathbb{Z}\}$
+\newline\newline\textsc{(b)} The unstable points are $x = \{(2z + 1)\pi | z\in \mathbb{Z}\}$
+\newline\newline\textsc{(c)} \textrm{I} \hspace{3em} $\displaystyle \frac{\partial}{\partial{x}}\left(\dot{x} = \sin{x} \right) \Rightarrow \ddot{x} = \cos{x}$
+\newline \hspace*{1.1em} \textrm{II} \hspace{3em} Maximum acceleration at maxima for $\ddot{x}$.  $\ddot{x}_{\hbox{max}} = \{2z\pi | z \in \mathbb{Z}\}$
+\end{solution}
+
+\item There are two ways to solve the logistic equation $\dot{N} = rN(1 - N/K)$ analytically for the arbitrary initial condition $N_0$.
+\newline\textsc{(a)} Separate variables and integrate using partial fractions.
+\newline\textsc{(b)} Make the change of variables $x = 1/N$.  Then derive and solve the resulting differential equation for $x$.
+
+\begin{solution}
+\newline\textsc{(a)} - Note, $C$ ignores changes in sign and value since it remains a constant which can be determined later.
+\begin{align*}
+\frac{\partial{N}}{\partial{t}} &= rN\left(1 - \frac{N}{k}\right) \\
+\partial{t} &= \frac{\partial{N}}{rN\left(1 - \frac{N}{k}\right)} \\
+\partial{t} &= \partial{N}\left( rN\left(1 - \frac{N}{k}\right) \right)^{-1} = \partial{N}\left(rN - \frac{rN^2}{k}\right)^{-1} \\
+\partial{t} &= \partial{N}\left( \frac{k}{rN(k-N)} \right) \\
+\\
+\frac{k}{rN(k-N)} &= \frac{A}{rN} + \frac{B}{k-N} \Rightarrow A(k-N) + B(rN) = k \\
+Ak = k, ~ BrN &= AN \Rightarrow A = 1, ~ B = \frac{1}{r} \\
+\end{align*}
+\begin{align*}
+\int\partial{t} &= \int\partial{N}\frac{1}{rN} + \int\partial{N}\frac{1}{r(N-k)}\\
+t + C &= \frac{1}{r}\ln{N} + \frac{-1}{r}\ln(k-N) \\
+tr + C &= \ln{N} - \ln(k-N) = \ln{\left( \frac{N}{k-N} \right)} \\
+\frac{N}{k-N} &= Ce^{tr} \\
+\frac{k-N}{N} &= Ce^{-tr} \\
+\frac{k}{N} &= Ce^{-tr} + 1 \\
+N &= \frac{k}{C/e^{tr} + 1} = \frac{ke^{tr}}{C + e^{tr}} \\
+\end{align*}
+\newline\newline\textsc{(b)}
+\end{solution}
+
+\item The growth of cancerous tumors can be modeled by the Gompertz Law $\dot{N} = -aN\ln{(bN)}$ where $N(t)$ is proportional to the number of tumor cells and $a, b > 0$ are parameters.
+\newline\textsc{(a)} Interpret $a$ and $b$ biologically.
+\newline\textsc{(b)} Sketch the vector field and graph $N(t)$ for various initial values.
+
+\begin{solution}
+\newline\textsc{(a)} $a$ is a growth factor for exponential growth.  $b$ is a growth factor if greater than or equal to $1$.  Otherwise it'll limit growth as $bN$ goes to $1$
+\newline\newline\textsc{(b)} Graph graph graph
+%\newline\includegraphics[width = \textwidth]{graph}
+\end{solution}
+
+
+\item Dominance of the fittest.  Suppose $X$ and $Y$ are two species that reproduce exponentially fast: $\dot{X} = aX$ and $\dot{Y} = bY$, respectively, with initial conditions $X_0, Y_0 > 0$, and growth rates $a > b > 0$. Here $X$ is “fitter” than $Y$ in the sense that it reproduces faster, as reflected by the inequality $a > b$. So we’d expect $X$ to keep increasing its share of the total population $X + Y$ as $t \to \infty$ . The goal of this exercise is to demonstrate this intuitive result, first analytically and then geometrically.
+\newline\textsc{(a)} Let $x(t) = X(t)/[X(t) + Y(t)]$ denote $X$'s total share of the population.  Solve for $X(t)$ and $Y(t)$ to show that $x(t)$ increases monotonically and approaches $1$ as $t$ goes to $\infty$.
+\newline\textsc{(b)} Alternatively, we can arrive at the same conclusions by deriving a differential equation for $x(t)$. To do so, take the time derivative of $x(t) = X(t)/[X(t) + Y(t)]$ using the quotient and chain rules. Then substitute for $\dot{X}$ and $\dot{Y}$ and thereby show that $x(t)$ obeys the logistic equation $\dot{x} = (a-b)x(1-x)$.  Explain why this implies that $x(t)$ increases monotonically and approaches $1$ as $t \to \infty$.
+
+\begin{solution}
+\newline\textsc{(a)}
+\begin{align*}
+    X(t) &\Rightarrow \frac{\partial{X}}{X} = a\partial{t} \Rightarrow \ln(X) = at + C \Rightarrow X = Ce^{at} \Rightarrow X = X_0 e^{at} \\
+    Y(t) &\Rightarrow \frac{\partial{Y}}{Y} = b\partial{t} \Rightarrow \ln(Y) = bt + C \Rightarrow Y = Ce^{bt} \Rightarrow Y = Y_0 e^{bt} \\
+    x(t) &= \frac{X_0 e^{at}}{X_0e^{at} + Y_0e^{bt}}
+\end{align*}
+Because $a > b$, $e^{at}$ grows faster than $e^{bt}$ so $\frac{e^{at}}{e^{bt}} = e^{(a-b)t}$ will grow constantly, meaning $e^{bt}$ will eventually be drowned out by $e^{at}$.  Thus $\lim_{t\to\infty} x(t) = X(t)/X(t) = 1$.  Additionally, because each term of the fraction is an exponential, each term grows monotonically, and so will the function from $X/[X+Y]$ to 1
+\newline\newline\textsc{(b)}
+\begin{align*}
+x(t) &= X/[X+Y] \\
+x'(t) &= \frac{(X+Y)(aX) - X(aX + bY)}{[X + Y]^2} \\
+&= a\frac{X}{X+ Y} - \frac{X}{(X+Y)}\cdot\frac{aX + bY}{X+Y} \\
+&= ax - x\left( a\frac{X}{X+Y} + b\frac{Y}{X+Y} \right) \\
+&= ax - x(ax + b(1-x)) \\
+&= ax - ax^2 - bx(1-x) \\
+&= x(a-ax - b(1-x)) \\
+&= x(a(1-x) - b(1-x)) \\
+&= (a-b)x(1-x)
+\end{align*}
+Here, $a-b$ is a positive constant, so it can be ignored.  For all $x \in [0,1]$, this function is positive, and because we are examining a derivative, it implies that the function will never be negative if it starts from a positive or zero value at $t=0$. This is a basic logistic equation, and as such the $(1-x)$ term limits the function to a value $k$ for $(1 - x/k)$.  In this case, that value is $1$, so $x(t)$ will not exceed 1.
+\end{solution}
+
+\item In statistical mechanics, the phenomenon of "critical slowing down" is a signature of second-order phase transition.  At the transition, the system relaxes to equilibrium much slower than normal.  Here's a mathematical version:
+\newline\textsc{(a)} Obtain the analytical solution for $\dot{x} = -x^3$ for an arbitrary initial condition $x_0$.  Show that $x(t) \to 0$ as $t \to \infty$ but that the decay is not exponential. (It should be a much slower algebraic function of $t$)
+\newline\textsc{(b)} To get some information about the slowness of decay, create a plot for the solution given the initial condition $x_0 = 10$ for $0 \leq t \leq 10$.  On the same graph, also plot the solution to $\dot{x} = -x, ~ x_0 = 10$. 
+
+
+\begin{solution}
+\newline\textsc{(a)}
+\begin{align*}
+    \frac{\partial{x}}{\partial{t}} &= -x^3 \Rightarrow -\frac{\partial{x}}{x^3} = \partial{t} \\
+    t &= -\int x^{-3}\partial{x} \Rightarrow t = \frac{1}{2}x^{-2} + c \\
+    \frac{1}{x^2} &= 2t + c \\
+    \frac{1}{x} &= (2t + c)^{1/2} \Rightarrow x = (2t + c)^{-1/2} \\
+    x(0) &= x_0 \Rightarrow (x_0 = c^{-1/2})^{-2} \Rightarrow c = x_0^{-2}
+\end{align*}
+Now, we can take the limit as $t \to \infty$.  Since $t \to \infty$, we know that $\sqrt{t} \to \infty$ and $\sqrt{t + c} \to \sqrt{t}$ for a constant $c$, so 
+\[
+\lim_{t\to\infty} (2t + x_0^{-2})^{-1/2} = 0 \hbox{ because 1/$\infty = 0$}
+\]
+If this decay were exponential, then it would be $\lim_{t\to\infty} e^{-kt}$ instead of what we solved.
+\newline\newline\textsc{(b)}
+\newline\includegraphics[width = \textwidth]{plot}
+\end{solution}
+
+\item A particle travels on the half-line $x \geq 0$ with a velocity given by $\dot{x} = -x^c, ~ \hbox{ constant } c \in \mathbb{R}$.
+\newline\textsc{(a)} Find all values of $c$ such that the origin $x = 0$ is a stable fixed point. 
+\newline\textsc{(b)} Now assume that $c$ is chosen such that $x = 0$ is stable. Can the particle ever reach the origin in a
+finite time? Specifically, how long does it take for the particle to travel from $x = 1$ to $x = 0$, as a
+function of $c$?
+
+\begin{solution}
+\newline\textsc{(a)} There are three cases for $c$: $c > 0, c < 0, c = 0$.
+\newline If $c > 0$, then the function is negative with a value approaching zero as $x^+ \to 0$.  This works.
+\newline If $c = 0$, the derivative is -1 which has no fixed points, stable or unstable, anywhere.  This doesn't work.
+\newline If $c < 0$, the derivative is $\frac{1}{x^c}$, a function that goes to $\pm\infty$ at $x=0$ which doesn't beget a stable fixed point.
+\newline Thus, there is a stable fixed point at $x=0$ for all $c \in \mathbb{R}> 0$
+\newline\newline\textsc{(b)} It helps to solve this problem first:
+\begin{align*}
+\frac{\partial{x}}{\partial{t}} &= -x^c \\
+\int \frac{\partial{x}}{x^c} &= -\int\partial{t} \\
+\frac{x^{1-c}}{1-c} &= -t + k \\
+t &= \frac{x^{1-c}}{c-1} + k \\
+\end{align*}
+At $x =0$, $t = k$.  At $x = 1$, $t = k + \frac{1}{c-1}$.  Therefore, the time it takes to travel from $x = 1$ to $x = 0$ is $\Delta t = t_0 - t_1 = k - \left( k + \frac{1}{c-1} \right) = -\frac{1}{c-1} = \frac{1}{1-c}$.  This time exists and is positive for $c < 1$.  At $c = 1$, $\Delta t$ is undefined, and at $c > 1$ it is negative.  It is not possible for a particle to take negative time going from one place to another, so the particle only makes it from $x = 1$ to $x = 0$ in a finite time if $ c < 1$
+\end{solution}
+
+\item Consider the equation $\dot{x} = rx + x^3$, where $r > 0$ is fixed. Show that $x(t) \to \pm\infty$ in finite time,
+starting from any initial condition $x_0 \neq 0$.
+
+\begin{solution}
+For $x_0 > 0$, $\dot{x} > 0$ which implies that the function is increasing.  A little farther along, $x_1 > x_0$ so $\dot{x}$ is larger and the function increases.  This continues off to $\infty$ getting faster and faster all the time.
+\newline For $x_0 < 0$, $\dot{x} < 0$, and the derivative's magnitude will only increase (since $rx$ and $x^3$ always have the same sign), sending $x$ to $-\infty$
+\end{solution}
+
+\end{questions}
+\end{document}

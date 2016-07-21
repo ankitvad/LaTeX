@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1.25in]{geometry}
+
+\title{Diff'Eq Test Corrections}
+\author{Ian Gallmeister}
+\date{February 2016}
+\setlength{\parindent}{0pt}
+\usepackage{datetime}
+\newdateformat{MDY}{\THEDAY \space \monthname[\THEMONTH] \THEYEAR}
+
+\begin{document}
+
+\Large
+\textsc{Diff'Eq Test Corrections}
+\newline \normalsize Ian Gallmeister
+\newline February 2016
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{15pt}{\Large \textbf{3}} 
+\newline \textsc{(a)} Assume $m$ and $n$ are integers that can each be written as the sum of two square numbers.  Using complex numbers, show that the product $mn$ can also be writeen as the sum of two perfect squares.
+\newline\textsc{(b)} Apply the result of \textsc{(a)} to the integers 10 and 29 to express their product as a sum of squares.
+
+\hangindent=20pt
+\vspace{10pt}\hspace{20pt}{\large\textsc{answer}}
+\newline\textsc{(a)} For this question, I started ok and just went in a completely wrong random direction.  I got that $n = a^2 + b^2$ and $m = c^2 + d^2$, but where I left them in that form, I could have put them instead into the form $n = |z_i|^2, \: m = |z_j|^2$ where $z_i = a + bi$ and $z_j = c + di$.  From there, we see that $mn = |z_i|^2|z_j|^2 = z_i\overline{z_i}z_j\overline{z_j} = |z_iz_j|^2$.  Because $z_iz_j = (a+ bi)(c+di) = (ac - bd) + (ad + bc)i$, $|z_iz_j|^2 = [ac - bd]^2 + [ad + bc]^2$
+\newline\textsc{(b)} I did this part first and without part \textsc{(a)} at all.  Starting with $10$ and $29$, we can find the squares that sum to those two: $10 = 9 + 1 = 3^2 + 1^2$ and $29 = 25 + 4 = 5^2 + 2^2$.  From here, we take our formula from part \textsc{(a)} and set $z_i = 3 + i$ and $z_j = 5 + 2i$.  Then we can plug that in and we find that $10*29 = [ac - bd]^2 + [ad + bc]^2 = [15 - 2]^2 + [6 + 5]^2 = 13^2 + 11^2 = 290 = 29*10$.  It works!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{15pt}{\Large \textbf{4}}
+\newline \textsc{(a)} Model the scenario with an initial value problem.
+
+\hangindent=20pt
+\vspace{10pt}\hspace{20pt}{\large\textsc{answer}}
+\newline\textsc{(a)} Here, my mistake was putting equations without initial conditions.  What I had is:
+\begin{align*}
+    \frac{dx}{dt} &= -k_1x \\
+    \frac{dy}{dt} &= -\frac{dx}{dt} - k_2y = k_1x - k_2y
+\end{align*}
+I should have added:
+\begin{align*}
+    x(0) &= A \hbox{ mg}\\
+    y(0) &= 0 \hbox{ mg}
+\end{align*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

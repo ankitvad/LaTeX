@@ -1,0 +1,155 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{marvosym}
+
+\title{Diff'Eq Exam}
+\author{Ian Gallmeister}
+\date{May 2016}
+\setlength{\parindent}{0pt}
+\usepackage{datetime}
+\newdateformat{MDY}{\THEDAY \space \monthname[\THEMONTH] \THEYEAR}
+
+\begin{document}
+
+\Large
+\textsc{Diff'Eq Final}
+\newline \normalsize Ian Gallmeister
+\newline May 2016
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{15pt}{\Large \textbf{1 - Chemistry}}
+\newline The Brusselator chemical reaction is described by the differential equations
+\[
+\dot{x} = A + x^2y - Bx - x, \:\:\:\: \dot{y} = Bx - x^2y
+\]
+where $x$ and $y$ are the dynamically evolving concentrations of two different chemicals.  The parameters $A$ and $B$ measure catalysts in the reaction (whose concentrations you control and are constant with time).  Let's set $A = 2$.  Find any fixed points and classify them (linearly) for each of the cases $B \ in \{0, 3, 5, 6, 10\}$.  Also, for $B = 6$, discuss in one brief sentence the long-term behavior of the soution for a generic initial condition (not starting at a fixed point).
+
+\hangindent=20pt
+\vspace{10pt}\hspace{20pt}{\large\textsc{answer}}
+\newline We can do much of this problem generally, then plug in values for $A$ and $B$.  To find a fixed point, we first set $\dot{y} = 0$ and find that if $0 = x(B - xy)$, then there are two possible fixed points: $(0, y)$ and $(x, B/x)$.  When taking that first possibility an plugging into $\dot{x} = 0$, we find that $A = 0$ so there is no solution for $A \neq 0$.  That leaves the second possibility which lets us take $ 0 = A + x(xy - B - 1) $ and substitute in $B$ for $xy$ to get $0 = A - x$ so the fixed point in this system is $\displaystyle (A, \frac{B}{A})$.
+\newline Then we can find the Jacobian matrix, its trace, and its determinant to determine what type of linearlized fixed points there are in this system.
+\[
+J = \left(\begin{array}{cc} \dot{x}_x & \dot{x}_y \\ \dot{y}_x & \dot{y}_y \end{array}\right) = \left(\begin{array}{cc} 2xy - B - 1 & x^2 \\ B - 2xy & -x^2 \end{array}\right) = \left.\left(\begin{array}{cc} B - 1 & A^2 \\ - B & -A^2 \end{array}\right)\right|_{(A, \frac{B}{A})}
+\]
+From this, we can see that the trace $\tau = B - 1 - A^2$ and the determinant $\Delta = A^2$.  The last potentially relevant quantity is $\tau^2 - 4\Delta = B^2 - 10B + 9$, though that is often easier to calculate once values for $\tau$ and $\Delta$ have been found.  Now with those equations found we can analyze the fixed points for $A = 2$, $B \in \{0,3,5,6,10\}$
+\begin{center}\begin{tabular}{c|ccccc}
+$B$ & Fixed Point & $\tau$ & $\Delta$ & $\tau^2 - 4\Delta$ & Classification \\
+\hline
+$0$ & $(2,0)$ & -5 & 4 & 9 & Stable Node\\
+$3$ & $(2, 3/2)$ & -2 & 4 & -12 & Stable Spiral \\
+$5$ & $(2, 5/2)$ & 0 & 4 & -16 & Center \\
+$6$ & $(2, 3)$ & 1 & 4 & -15 & Unstable Spiral  \\
+$10$ & $(2, 5)$ & 5 & 4 & 9 & Unstable Node  \\
+\end{tabular}\end{center} 
+
+\hangindent=20pt
+\hspace*{20pt} At $B = 6$ the fixed point is an unstable spiral, a robust case, so the actual behavior will be the same as the linearized classification.  This means that an initial condition near the fixed point will oscillate with increasing magnitude/amplitude around the point $(2, 3)$.
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{15pt}{\Large \textbf{2 - Physics}}
+\newline Consider the following equation from mechanics
+\[
+m\ddot{x} + c\dot{x} + kx + \beta x^3 = F_0\cos{(\omega t)}
+\]
+
+Fill in the blanks:  The parameter $m$ represents \textcircled{1} and the term $\ddot{x}$ represents \textcircled{2}.  The term $c\dot{x}$ represents a \textcircled{3} force.  The term $kx + \beta x^3$ represents a \textcircled{4} force.  The right hand side represents a/an \textcircled{5} force.
+
+\vspace{1em}
+
+Then take $k = -1 \hbox{ and } m = c = \beta = 1$ and initial conditions $x(0) = 1, ~ \dot{x}(0) = 0$.  In no more than one brief sentence, using terms from dynamical systems, identify the behavior of the system for $F_0 = 0.8$ and explain how you arrived at your answer.
+
+\hangindent=20pt
+\vspace{10pt}\hspace{20pt}{\large\textsc{answer}}
+\newline \begin{tabular}{ll}
+1 & Mass \\
+2 & Acceleration \\
+3 & Damping \\
+4 & Spring \\
+5 & External \\
+\end{tabular}
+
+\hangindent=20pt
+\hspace*{20pt} With the simplifications added, we get the equation
+\[
+\ddot{x} + \dot{x} - x + x^3 = 0.8\cos{(t)}
+\]
+This equation describes an oscillation with spring force $-x + x^3$, damping force $x$, and external force $0.8\cos{t}$.  Because of that damping force, the oscillations will eventually go to zero at times which suggests a stable spiral.  That said, this is a nonhomogeneous equation so it could oscillate forever making the phase plane a center.
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{15pt}{\Large \textbf{3 - Biology}}
+\newline A simple (and flawed) model for a biological interaction is
+\[
+\dot{R} = aR - bRF, \:\:\:\: \dot{F} = -cF + dRF
+\]
+where $R$ represents the number of prey in a population and $F$ represents the number of predators.  After nondimensionalization, these equations can be written as
+\[
+\dot{x} = x(1 - y), \:\: \dot{y} = \mu y(x - 1)
+\]
+First, figure out what $\mu$ is in terms of the oricinal parameters.  Then, for simplicity, take $\mu = 1$. Find a conserved quantity (hint: form an equation for $dy/dx$ and solve it).  Finally, assume $x(0) = 3, y(0) = 0.02$.  Without solveing the differential equations numerically, find the value of $y$ when $x = 1$.  There are two possible answers - choose the larger one.  Give your answer to two decimal places.
+
+\hangindent=20pt
+\vspace{20pt}\hspace{20pt}{\large\textsc{answer}}
+\newline If we say that the units of $R$ are $R$ and the same goes for $F$, then $[a] = 1/T, \: [c] = 1/T, \: [b] = 1/FT, \hbox{ and } [d] = 1/RT$.  By setting $\displaystyle x = \frac{d}{c}R \hbox{ and } y = \frac{b}{a}F \hbox{ with } \tau = at$, we can determine that $\displaystyle \partial/\partial{t} = (\partial{\tau}/\partial{t})(\partial/\partial{\tau})$, so
+\begin{align*}
+    \frac{\partial}{\partial{t}}(R) &= aR(1 - \frac{b}{a}F) \\
+    a \frac{\partial}{\partial{\tau}}\left( \frac{c}{d} x \right) &= a\frac{c}{d}x(1 - y) \\
+    \frac{\partial{x}}{\partial{\tau}} &= x(1 - y) \\
+    \\
+    \frac{\partial}{\partial{t}}(F) &= cF\left( \frac{d}{c}R - 1 \right) \\
+    a\frac{\partial}{\partial{\tau}}\left(\frac{a}{b}y\right) &= c\frac{a}{b}y(x - 1)\\
+    a\frac{\partial{y}}{\partial{\tau}} &= cy(x-1)
+    \frac{\partial{y}}{\partial{\tau}} = \frac{c}{a}y(x-1)
+\end{align*}
+Therefore, $\mu = c/a$.  To find the constant value, we form an equation for $\partial{x}/\partial{y}$ and solve.
+\begin{align*}
+    \frac{\frac{\partial{x}}{\partial{\tau}}}{\frac{\partial{y}}{\partial{\tau}}} &= \frac{\partial{x}}{\partial{y}} = \frac{x(1 - y)}{y(x-1)}\\
+    \int \frac{x-1}{x}\partial{x} &= \int \frac{1-y}{y}\partial{y} \\
+    x - \ln{x} & = \ln{y} - y + \mathcal{C}\\
+    \mathcal{C} &= x + y - \ln{x} -\ln{y}
+\end{align*}
+With initial conditions $x = 3, y = 0.02$, $\mathcal{C} = 3.02 - \ln{3} - \ln{2} = 5.833$.  At $x = 1$, $5.833 = y + 1 - \ln{y} \Rightarrow 4.833 = y - \ln{y}$ which means that $y \approx 0.0080$ and $y \approx 6.7417$.  That means $y \approx 6.74 \hbox{ at } x = 1$.
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{15pt}{\Large \textbf{4 - Shakespeare}}
+\newline Romeo's feeling for Juliet is $R(t)$.  Juliet's feeling for Romeo is $J(t)$.  Positive values are love.  Negative ones are hatred.  Suppose that the change in Romeo's feelings for Juliet vary seasonally by $\cos{(2t)}$.  Suppose also that the change in Juliet's feelings for Romeo has two additive components.  The first is proportional to Romeo's feelings with constant of proportionality $-3$.  The second is proportional to Juliet's feelings with constant of proportionality $2$.  Romeo starts out indifferent to Juliet (no love or hate).  Model the problem, and without using a computer to produce the solution analytically, find $R(t)$ and $J(t)$.  Also, how much must Juliet start out loving Romeo in order for her to end up with growing love for him in the long term ($t \to \infty$)?
+
+\hangindent=20pt
+\vspace{20pt}\hspace{20pt}{\large\textsc{answer}}
+\newline By the description, the change in Romeo's feelings is $\cos{(2t)}$ and the change in Juliet's is $-3R + 2J$.  Therefore, we can model this problem as:
+\[
+\dot{R} = \cos{(2t)}, \:\: \dot{J} = -3R + 2J, \:\: \dot{t} = 1
+\]
+Looking at these equations, we can see that we can rearrange and integrate $\dot{R}$ without any trouble:
+\begin{align*}
+    \frac{\partial R}{\partial t} &= \cos{(2t)} \Rightarrow \partial{R} = \cos{(2t)} \partial{t} \\
+    \int \partial{R} &= \int \cos{(2t)} \partial{t} \\
+    R &= \frac{1}{2}\sin{(2t)} + C \\
+    R(0) &= 0 = \frac{1}{2}\sin{(0)} + C \Rightarrow C = 0 \\
+    R &= \frac{1}{2}\sin{(2t)}
+\end{align*}
+One can substitute this solution into the equation for $\dot{J}$ to find that
+\[
+\dot{J} = 2J - \frac{3}{2}\sin{(2t)}
+\]
+Some rearrangement shows that his is an inhomogeneous linear system, so we can find a solution.  First, we need to find the homogeneous part.  We guess that $J_H = e^{\lambda t}$ for $\dot{J} - 2J = 0$ and substitute, finding that
+\[
+\lambda e^{\lambda t} - 2 e^{\lambda t} = 0 \Rightarrow \lambda - 2 = 0
+\]
+Therefore, $\lambda = 2$ and $J_H = C_1 e^{2t}$.  To find the inhomogeneous part, we start by guessing that $J_i = A \cos{(2t)} + B \sin{(2t)}$ which lets us derive to find $\dot{J}$ then substitute and rearrange to get the equation
+\[
+(-A + 2B) \sin{(2t)} + (B - 2A)\cos{(2t)} = \frac{-3}{2}\sin{(2t)}
+\]
+Upon separating and solving the cosine and sine parts separately, we find that $B = 2A$ and $2B - A = -3/2$.  Through substitution, we find that $3A = -3/2$ so $A = -1/2$ and $B = -1$.  Therefore, the full solution for $J(t)$ is
+\[
+J(t) = C_1 \cdot J_h + J_i = C_1 e^{2t} + \frac{-1}{2}\cos{(2t)} - \sin{(2t)}
+\]
+\newline For Juliet to grow to love Romeo as $t \to \infty$, we need $\dot{J}$ to be positive overall, and graphing $J(t)$ for various values of $C_1$ shows that if $C_1 = 0$, $J(0) = -0.5$ and oscillates forever.  However if $J_0 > -0.5$, then Juliet's love will grow eternally \Smiley.  Not coincidentally, if $J_0 < -0.5$, her hate will grow eternally \Frowny.
+
+\end{document}

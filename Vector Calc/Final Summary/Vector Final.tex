@@ -1,0 +1,860 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{marvosym}
+
+\title{Second Year Calculus}
+\author{Ian Gallmeister}
+\date{May 2014}
+
+\begin{document}
+
+\maketitle
+
+\section{\LaTeX\ Resources}
+
+Comprehensive Symbol Library
+
+\smallskip
+
+http://www.tex.ac.uk/tex-archive/info/symbols/comprehensive/symbols-a4.pdf
+
+\bigskip
+
+Tips and Common Symbols
+
+\smallskip
+
+http://www.artofproblemsolving.com/Wiki/index.php/LaTeX:About
+
+\bigskip
+
+Instructions and Common Symbols
+
+\smallskip
+
+http://www.maths.tcd.ie/$\sim$dwilkins/LaTeXPrimer/
+
+\section{$F = ma$}
+
+\bigskip
+
+\textsc{Kepler's Laws}
+
+\begin{enumerate}
+\item 
+A planetary orbit sweeps out equal area in equal time
+\item
+A planetary orbit is an ellipse with the sun at one focus
+\item
+The square of the period of the orbit is directly proportional to the cuve of the mean distance(the average of the closest and farthest distances from the physical focus)
+\end{enumerate}
+
+\bigskip
+
+\textsc{Newton's Laws}
+
+\begin{enumerate}
+\item 
+Every body continues in its state of rest or of uniform motion in a right line, unless it is compelled to change that state by forces impressed upon it.
+\item
+The change of motion in proportional to the motive force impressed, and is made in the direction of the right line in which that force is impressed
+\item
+To every action there is always an opposed an equal reaction; or, the mutual actions of two bodies upon each other are always equal, and directed to contrary parts.
+\end{enumerate}
+
+Newton's second law is more commonly known as $F = ma$, though Newton used $F = \frac{\partial{p}}{\partial{t}}$ where $p$ is momentum.
+
+\bigskip
+
+\textsc{Newton's First Proposition}
+
+Let $S$ be a fixes point and let $P$ be a moving particle such that the only forces acting on $P$ at any given time lie in the direction of the line connecting $S$ ot $P$ at that mmoment.  Then, the path followed by $P$ will lie in a single plane, and the area swept out by the line connecting $S$ to $P$ will be the same for any equal length of time.
+
+\bigskip
+
+\textsc{Newton's Second Proposition}
+
+Let $S$ be a fixes point and let $P$ be a moving particle that stays in a fixed plane containing $S$ and sweeps out equal area in equal time; then, the only forces acting on $P$ are radial forces from $S$.
+
+\bigskip
+
+\textsc{Newton's Eleventh Proposition}
+
+If a particle $P$ moves along an ellipse in such manner that its only acceleration is always directed along the line from $P$ to the focus $F_1$, then the magnitude of that acceleration, and thus the magnitude of the accelerative force, is inversely proportional to the square of the distance between $P$ and $F_1$.
+
+\section{Vector Algebra}
+
+\bigskip
+
+\textbf{Planes}
+
+A plane containing the origin is uniquely determined by two nonparallel vectors $\vec{r}$ and $\vec{s}$.  Specifically, it is the set of all linear combinations of $\vec{r}$ and $\vec{s}$.
+
+\[
+P = \{ a_0 \vec{r} + a_1 \vec{s} \hspace{2mm} | \hspace{2mm} a_0, a_1 \in \mathbb{R} \}
+\]
+
+The plane can be parameterized, and those parameterizations reduced to one equation from which any two nonparallel vectors which satisfy that equation define the same plane as $\vec{r}$ and $\vec{s}$.
+
+\bigskip
+
+\textsc{Dot Product}
+
+The sum of componentwise multiplication.
+
+For $\vec{r}$ and $\vec{s}$, 
+
+\[
+\vec{r} \cdot \vec{s} = \lvert \vec{r}\rvert \lvert\vec{s}\rvert\cos{\theta}
+\]
+
+If 
+
+\[
+\vec{r} = \left( \begin{array}{c} 
+ r_x  \\
+ r_y  \\
+ r_z
+\end{array} \right), \vec{s} = \left( \begin{array}{c}
+ s_x  \\
+ s_y  \\
+ s_z
+\end{array} \right)
+\]
+
+\[
+\vec{r} \cdot \vec{s} = r_xs_x + r_ys_y + r_zs_z
+\]
+
+\bigskip
+
+\textsc{Vector Decomposition}
+
+A unit vector, $\vec{u}$ in the direction of $\vec{v}$ is found by dividing $\vec{v}$ by it's magnitude.
+
+Vector $\vec{r}$ can be decomposed into a piece in the direction of $\vec{u}$ and a piece perpendicular.
+
+\[
+\vec{r} = \vec{r}_{\vec{u}} + \vec{r}_{\bot\vec{u}}
+\]
+
+\[
+\vec{r}_{\vec{u}} = \lvert \vec{r} \rvert \cos{\theta} \vec{u} = (\vec{r} \cdot \vec{u})\vec{u}
+\]
+
+\bigskip
+
+\textsc{Cross Product}
+
+Vector product, anticommutative, gives signed area of parallelogram formed by $\vec{r}$ and $\vec{s}$
+
+\[
+\vec{r} \times \vec{s} = \lvert \vec{r} \rvert \lvert \vec{s} \rvert \sin{\theta}
+\]
+
+For
+
+\[
+\vec{r} = \left( \begin{array}{c} 
+ r_x  \\
+ r_y  \\
+ r_z
+\end{array} \right), \vec{s} = \left( \begin{array}{c}
+ s_x  \\
+ s_y  \\
+ s_z
+\end{array} \right)
+\]
+
+\[
+\vec{r} \times \vec{s} = det \left| \begin{array}{ccc}
+\hat{x} & \hat{y} & \hat{z} \\
+r_x & r_y & r_z \\
+s_x & s_y & s_z
+\end{array} \right|
+\]
+
+\bigskip
+
+\section{Celestial Mechanics}
+
+\textsc{Orbital Mechanics}
+
+Theorem - If $\vec{r}(t)$ is position at time $t$, $\vec{v}(t)$ is velocity, and $\vec{a}(t)$ is acceleration, if $\vec{a}(t)$ is radial, $\vec{r} \times \vec{v} = \vec{K}$ where $\vec{K}$ is a constant vector of magnitude 
+
+\[
+K = \lvert \vec{K} \rvert = 2\frac{\partial{A}}{\partial{t}} = rv\sin{\phi}
+\]
+
+where $\phi$ is the angle between $\vec{r}$ and $\vec{s}$, and $\frac{\partial{A}}{\partial{t}}$ is the rate at which area is being swept out.
+
+
+The force of gravity, $\vec{F}_G$ is given by:
+
+\[
+\vec{F}_G = -G\frac{M_1M_2}{r^2}\vec{u}_r \Rightarrow \vec{a} = -\frac{GM_1}{r^2}\vec{u}_r
+\]
+
+Apogee, the farthest distance from the physical focus in an orbit, is given by:
+
+\[
+\frac{\gamma}{1 - \lvert \epsilon \rvert}
+\]
+
+and Perigee, the nearest distance to the physical focus in an orbit, is given by:
+
+\[
+\frac{\gamma}{1 + \vert \epsilon \rvert}
+\]
+
+where $\gamma = \frac{K^2}{GM}$ and $\epsilon$ is the eccentricity of the orbit.  If $\epsilon$ is zero, the orbit is circular.  If $0 < \epsilon < 1$, the orbit is elliptical, and if $\epsilon = 1$, the orbit is parabolic.  Finally, any orbiting object with $\epsilon < 1$ is in a hyperbolic orbit.
+
+The mean distance, $a$, is defined by:
+
+\[
+a = \frac{\gamma}{1 - \epsilon^2}
+\]
+
+Finally, eccentricity, $\epsilon$, can be found in many ways.  These equations are simplest at apogee and perigee  = where $\phi\frac{\pi}{2}$ and the equations simplify quite a bit.
+
+\[
+\epsilon^2 = \frac{r^2v^4\sin^2{\phi}}{G^2M^2} - \frac{2rv^2sin^2{\phi}}{GM} + 1
+\]
+
+\[
+\epsilon^2 = 1 + \frac{rv^2sin^2{\phi}}{G^2M^2}\left( rv^2 - 2GM \right)
+\]
+
+
+\[
+\epsilon^2 = sin^2{\phi} \left(1-\frac{rv^2}{GM} \right)^2 + \cos^2{\phi}
+\]
+
+\bigskip
+
+\section{Differential Forms}
+
+Differential forms exist to be integrated
+
+1-forms $\Rightarrow dx$ 
+
+2-forms $\Rightarrow dx_1dx_2$
+
+k-forms $\Rightarrow dx_1dx_2 \ldots dx_k$
+
+\bigskip
+
+\textsc{Rules for Multiplying Differential Forms}
+\begin{enumerate}
+\item Constants commute.  
+
+$\Rightarrow du(kdv) = k(dudv)$
+\item Multiplication of constants and differentials is distributive.
+
+$\Rightarrow (k_1 + k_1)du = k_1du + k_2du$
+\item Multiplicaiton of differentials is anticommutative.
+
+$\Rightarrow dudv = -dvdu$
+\end{enumerate}
+
+\bigskip
+
+\section{Line and Multiple Integrals}
+
+\[
+lim_{\Delta{x} \to 0} \sum f(x_i)\Delta{x_i} = \int f(x)\,dx\
+\]
+
+\textsc{Line Integrals}
+
+Find $f(x, y)dx + g(x, y)dy$ evaluated on curve $C = \{ \left(x(t), y(t)\right) \hspace{2mm} | \hspace{2mm} a \le t \le b \}$
+
+\bigskip
+
+If $F(t) = f\left(x(t), y(t)\right)$ and $G(t) = g\left(x(t), y(t)\right)$, then:
+
+\[
+\int_C f(x, y)\,dx\ + g(x, y)\,dy\ = \int_a^b \left( F(t)\frac{dx}{dt} + G(t)\frac{dy}{dt} \right)dt
+\]
+
+\bigskip
+
+\textsc{Multiple Integrals}
+
+\[
+\int_R f(x, y)\,dxdy\ , \ R = \{ (x, y) \hspace{2mm} | \hspace{2mm} a_i \le x \le a_f, b_i \le y \le b_f \}
+\]
+
+\[
+= \int_{b_1}^{b_2} \left( \int_{a_1}^{a_2} f(x, y) \,dx\ \right) \,dy\
+\]
+
+\bigskip
+
+\textsc{Interated Integrals vs. Differential Multiplication}
+
+\smallskip
+
+Differential Multiplication
+
+\[
+\Rightarrow \int_R f(x, y)\,dxdy\ = - \int_R f(x, y)\,dydx\
+\]
+
+Iterated Integrals
+\[
+\Rightarrow \int_{b_1}^{b_2} \left( \int_{a_1}^{a_2} f(x, y) \,dx\ \right) \,dy\ = \int_{a_1}^{a_2} \left( \int_{b_1}^{b_2} f(x, y)  \,dy \right) \,dx\
+\]
+
+\bigskip
+
+\section{Linear Transformations}
+
+\bigskip
+
+A linear transformatio is a function $\vec{L}$ such that
+
+\[
+\vec{L}(\vec{a} + \vec{b}) = \vec{L}(\vec{a}) + \vec{L}(\vec{b}) 
+\]
+
+and 
+
+\[
+\vec{L}(c\vec{a}) = c\vec{L}(\vec{a})
+\]
+
+\bigskip
+
+\textsc{Differentiability}
+
+For real valued functions, $y = f(x)$ is differentiable at $\vec{c}$ if 
+
+\[
+\lim_{\vec{x} \to \vec{c}} \frac{f(\vec{x}) - f(\vec{c})}{\vec{x} - \vec{c}}
+\]
+
+exists.
+
+\bigskip
+
+Given a vector field
+
+\[
+\vec{F}: \mathbb{R}^n \to \mathbb{R}^m, \hspace{2mm} \vec{y} = \vec{F}(\vec{x})
+\]
+
+$\vec{F}$ is differentiable at $\vec{c}$ if there exists a linear transformation, such that:
+
+\[
+\vec{L}_{\vec{c}}: \mathbb{R}^n \to \mathbb{R}^m
+\]
+
+\[
+\Delta{\vec{y}} = \vec{F}(\vec{x}) - \vec{F}(\vec{c})
+\]
+
+\[
+\Delta{\vec{x}} = \vec{x} - \vec{c}
+\]
+and
+\[
+\lim_{\Delta{\vec{s}} \to \vec{0}} \vec{E}(\vec{c}, {\Delta{\vec{x}}}) = \vec{0}
+\]
+
+The linear transformation, $\vec{L}_{\vec{c}}$ is the derivative of $\vec{y} = \vec{F}(\vec{x})$ at $\vec{c}$ if we define
+
+\[
+d\vec{x} = (dx_1, dx_2, \ldots, dx_n)
+\]
+
+\[
+d\vec{y} = (dy_1, dy_2, \ldots, dy_n)
+\]
+
+And if $\vec{L}_{\vec{c}}$ is the derivative of $\vec{y} = \vec{F}(\vec{x})$ at $\vec{c}$, $d\vec{x}$ and $d\vec{y}$ are related in that 
+
+\[
+d\vec{y} = \vec{L}_{\vec{c}}\left( d\vec{x} \right)
+\]
+
+In one equation, $\vec{y} = \vec{F}(\vec{x})$ is differentiable at $\vec{c}$ if there exists a linear transformation, $\vec{L}_{\vec{c}}$ such that:
+
+\[
+\vec{F}(\vec{x}) - \vec{F}(\vec{c}) = \vec{L}_{\vec{c}}(\vec{x} - \vec{c}) + \lvert \vec{x} - \vec{c} \rvert \hspace{1mm} \vec{E}(\vec{c}, \vec{x} - \vec{c})
+\]
+
+where
+
+\[
+\lim_{\vec{x} \to \vec{c}} \vec{E}(\vec{c}, \vec{x} - \vec{c}) = \vec{0}
+\]
+
+
+\bigskip
+
+\textsc{Matrix Notation}
+
+Linear transformation, $\vec{L}$ from $(x_1, x_2, x_3, \ldots, x_n)$ space to $(y_1, y_2, y_3, \ldots, y_m)$ is determined by what it does to $\hat{x_1} \hat{x_2}, \hat{x_3}, \ldots, \hat{x_n}$, the orthogonal unit vectors of the x-space which can be expressed as a matrix, \textbf{L}.
+
+\[
+%Individual Rows of the matrix
+\begin{array}{c}
+\vec{L}_{\hat{x_1}} = (y_{11}, y_{12}, \ldots, y_{1m})   \\
+\vec{L}_{\hat{x_2}} = (y_{21}, y_{22}, \ldots, y_{2m})   \\
+\vdots \\
+\vec{L}_{\hat{x_n}} = (y_{n1}, y_{n2}, \ldots, y_{nm})
+\end{array} 
+%Becomes
+\Rightarrow
+%The Matrix
+\textbf{L} = \left( \begin{array}{cccc}
+y_{11} & y_{12} & \ldots & y_{1m}\\
+y_{21} & y_{22} & \ldots & y_{2m}\\
+ \vdots & \vdots & \ddots & \vdots\\
+y_{n1} & y_{n2} & \ldots & y_{nm}
+\end{array}\right)
+\]
+
+\bigskip
+
+\section{Differential Calculus}
+
+\textsc{Limits}
+
+\[
+\lim_{\vec{x} \to \vec{c}} f(x) = l
+\]
+
+In 2 dimenstions,there are only two directions to approach $\vec{c}$, but in three or more, there are infinite ways.  A limit is undefined if it doesn't approach the same value from every direction.
+
+\smallskip
+
+A level curve is a curve of uniform value.
+
+\bigskip
+
+\textsc{Continuity}
+
+A scalar field is continuous at $\vec{c}$ if and only if there are not cliffs.  In other words, if and only if
+
+\[
+\lim_{\vec{x} \to \vec{c}} f(x) = \vec{F}(\vec{c})
+\]
+
+Additionally, a differentiable function is implied to be continuous.
+
+\bigskip
+
+\textsc{Directional Derivatives}
+
+Let $\vec{c}$ be a point in the domain of scalar field $f: \mathbb{R}^n \to \mathbb{R}$ and $\vec{u}$ be a unit vector specifying a direction.  The directional derivative of $f$ at $\vec{c}$ in the direction of $\vec{u}$, $f'(\vec{c}; \vec{u})$ is defined to be:
+
+\[
+f'(\vec{c}; \vec{u}) = \lim_{h \to 0} \frac{f(\vec{c} + h\vec{u}) - f(\vec{c})}{h}
+\]
+
+And:
+
+\[
+f'(\vec{c}; -\vec{u}) = -f'(\vec{c}; \vec{u})
+\]
+
+A partial derivative is a directional derivative in the direction of the unit bases.  We can find it by treating the orthogonal variables as constant and take the derivative as though the function is a single variable function of the derivative's direction.
+
+\bigskip
+
+\textsc{Mean Value Theorem}
+
+Let $f$ be a scalar field and let $\vec{a}$ and $\vec{b}$ be two points in its domain.  Let $m = \lvert \vec{b} - \vec{a} \rvert$ and $\vec{u} = \frac{\vec{b} - \vec{a}}{\lvert \vec{b} - \vec{a} \rvert}$.  Assuming $f'(\vec{x}; \vec{u})$ exists for every $\vec{x}$ on the line segment from $\vec{a}$ to $\vec{b}$. 
+
+\[
+L = \{\vec{a} + t\vec{u} \hspace{2mm} \lvert \hspace{2mm} 0 \le t \le m  \}
+\]
+
+Then the average rate of change of $f$ from $\vec{a}$ to $\vec{b}$ is equal to the directional derivative at some point $\vec{c}$ between $\vec{a}$ and $\vec{b}$.  That is, there exists a $\vec{c}$, $\vec{c} \in L$, $\vec{c} \neq \vec{a}$, $\vec{c} \neq \vec{b}$ such that
+
+\[
+f'(\vec{c}; \vec{u}) = \frac{f(\vec{b}) - f(\vec{a})}{\lvert \vec{b} - \vec{a} \rvert}
+\]
+
+\bigskip
+
+\textsc{The Jacobian}
+
+The Jacobian is the determinant of the Jacobian matrix.
+
+For $f:\mathbb{R}^n \to \mathbb{R}^m$, the Jacobian matrix \textbf{J} is:
+
+\[
+J = \left( \begin{array}{cccc}
+\frac{\partial{f_1}}{\partial{x_1}} & \frac{\partial{f_1}}{\partial{x_2}} & \ldots & \frac{\partial{f_1}}{\partial{x_n}} \\
+\frac{\partial{f_2}}{\partial{x_1}} & \frac{\partial{f_2}}{\partial{x_2}} & \ldots & \frac{\partial{f_2}}{\partial{x_n}} \\
+\vdots & \vdots & \ddots & \vdots \\
+\frac{\partial{f_m}}{\partial{x_1}} & \frac{\partial{f_m}}{\partial{x_2}} & \ldots & \frac{\partial{f_m}}{\partial{x_n}}
+\end{array} \right)
+\]
+
+\bigskip
+
+\textsc{Chain Rule}
+
+Let $\vec{F}: \mathbb{R}^n \to \mathbb{R}^m$ and $\vec{G}: \mathbb{R}^m \to \mathbb{R}^l$ such that $l, m, n \ge 1$ be functions for which the range of $\vec{F}$ is contained in $\vec{G}$.  If $\vec{F}$ is differentiable at $\vec{c}$ and $\vec{G}$ is differentiable at $\vec{F(\vec{c})}$, then the derivative of the composition $\vec{G} \circ \vec{F}$ at $\vec{c}$ is the composition of the derivatives:
+
+\[
+(\vec{G} \circ \vec{F})'\vec{c}(\Delta{\vec{x}}) = \vec{G}'_{\vec{F}(\vec{c})} \circ \vec{F}'_{\vec{c}}(\Delta{\vec{x}})
+\]
+
+\bigskip
+
+\section{Integration by Pullback}
+
+\bigskip
+
+\textsc{Surface Integrals}
+
+Integral of a 2-form over a surface.  Example:
+
+\[
+\int_S x^2\,dydz\ - yz^3\,dzdx\, y^3\,dxdy\
+\]
+
+\[
+S = \{ (x, y, z) \hspace{2mm} \lvert \hspace{2mm} x^2 + y^2 + z^2 = 1, \hspace{1mm} x \ge 0 \}
+\]
+
+\[
+\begin{array}{c}
+ x = \cos{\theta}\cos{\phi}  \\
+ y = \sin{\theta}\cos{\phi}  \\
+ z = \sin{\phi}
+\end{array} \hspace{10mm} \begin{array}{c}
+ -\frac{\pi}{2} \le \theta \le \frac{\pi}{2}  \\
+ -\frac{\pi}{2} \le \phi \le \frac{\pi}{2} 
+\end{array}
+\]
+
+After taking the differentials of $x$, $y$, and $z$, we can plug those values into the integral and pull it back into an integral over $\theta$ and $\phi$.
+
+\[
+\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \left( \cos^3{\theta}\cos^4{\phi} - \sin^2{\theta}\cos^3{\phi}\sin^3{\phi} + \sin^3{\theta}\cos^4{\phi}\sin{\phi} \right) \,d\theta d\phi\ = \frac{\pi}{2}
+\]
+
+\bigskip
+
+\textsc{Proof of an Identity}
+
+\[
+\int_S v_1\,dydz\ + v_2\,dzdx\ + v_3\,dxdy\ = \int_R \vec{v}\left(\frac{\partial{\vec{F}}}{\partial{u}} \times \frac{\partial{\vec{F}}}{\partial{v}} \right) \,dudv\
+\]
+
+\[
+= \int_R \vec{v} \cdot \vec{n} \left| \frac{\partial{\vec{F}}}{\partial{u}} \times \frac{\partial{\vec{F}}}{\partial{v}} \right| \,dudv\ = \int_R \vec{v} \cdot \vec{n} \,d\sigma\
+\]
+
+\bigskip
+
+\section{Techniques of Differential Calculus}
+
+\textsc{Invertibility}
+
+\smallskip
+
+Let $\vec{F}: \mathbb{R}^n \to \mathbb{R}^n$ be a vector field continuously differentiable at $\vec{c}$ described by:
+
+\[
+\begin{array}{c}
+ y_1 = f_1(x_1, x_2, \ldots, x_n) \\
+ y_2 = f_2(x_1, x_2, \ldots, x_n) \\
+ \vdots \\
+ y_n = f_n(x_1, x_2, \ldots, x_n) 
+\end{array}
+\]
+
+If the Jabobian at $\vec{c}$ does not equal $0$, then
+
+\[
+\frac{\partial{(f_1, f_2, \ldots, f_n)}}{\partial{(x_1, x_2, \ldots, x_n)}}(\vec{c}) \neq 0
+\]
+
+and $\vec{F}$ is invertible in some neighborhood around $\vec{c}$.
+
+\bigskip
+
+\textsc{Hessian}
+
+The Hessian is the determinant of the Hessian Matrix, textbf{H}
+
+\[
+\left( \begin{array}{cccc}
+\frac{\partial^2{f}}{\partial{x_1}^2} & \frac{\partial^2{f}}{\partial{x_2}\partial{x_1}} & \ldots & \frac{\partial^2{f}}{\partial{x_n}\partial{x_1}} \\
+\frac{\partial^2{f}}{\partial{x_1}\partial{x_2}} & \frac{\partial^2{f}}{\partial{x_2}^2} & \ldots & \frac{\partial^2{f}}{\partial{x_n}\partial{x_2}} \\
+\vdots & \vdots & \ddots & \vdots \\ 
+\frac{\partial^2{f}}{\partial{x_1}\partial{x_n}} & \frac{\partial^2{f}}{\partial{x_2}\partial{x_n}} & \ldots & \frac{\partial^2{f}}{\partial{x_n}^2}
+\end{array} \right)
+\]
+
+\bigskip
+
+\section{The Fundamental Theorem of Calculus}
+
+\textsc{Stokes Theorem - The Fundamental Theorem of Calculus}
+Let $M$ be a bounded, twice continuously differentiable, oriented, $k + 1$ dimensional manifold in $\mathbb{R}^n$, $n \ge k + 1$, with a k-dimensional boundary $\partial{M}$, and let $\omega(\vec{x})$ be a continuous differentiable k-form in $\mathbb{R}^n$.  Then $\partial{\omega}$ is a k+1 form and 
+
+\[
+\int_{\partial{M}} \omega = \int_M \partial{\omega}
+\]
+
+\bigskip
+
+\textsc{Green's Theorem}
+
+If $\omega(\vec{x})$ is a 1-form in $\mathbb{R}^n$, 
+
+\[
+\omega = f\,dx\ + g\,dy\
+\]
+
+\[
+\partial{\omega} = \left(\frac{\partial{g}}{\partial{x}} - \frac{\partial{f}}{\partial{y}}\right) \,dxdy\
+\]
+
+so,
+
+\[
+\int_{\partial{M}} f\,dx\ + g\,dy\ = \int_M \left(\frac{\partial{g}}{\partial{x}} - \frac{\partial{f}}{\partial{y}}\right) \,dxdy\
+\]
+
+\bigskip
+
+\textsc{Gauss' Theorem}
+
+If $\omega(\vec{x}) = f\,dydz\ + g\,dzdx\ + h\,dxdy\ $ and $M$ is a solid region with positive orientation, $\partial{M}$ is the close surface of $M$ and:
+
+\[
+\int_{\partial{M}} \partial{\omega} = \int_M \left( \frac{\partial{f}}{\partial{x}} + \frac{\partial{g}}{\partial{y}} + \frac{\partial{h}}{\partial{z}}\right)
+\]
+
+This flow is incompressible if $\partial{\omega} = 0$.  This is also called a closed form.  Another state for $\omega$ is exact.  An exact form is one which is the differential of another, and thus one can apply Stokes Theorem and get one path independent integral.  The one guideline is that the region must be simply connected, meaning there are no singularities in that region.  Any exact form is closed, but not all closed forms are exact.
+
+\bigskip
+
+\section{Summary for $\mathbb{R}^3$}
+A copy of section 10.7
+\bigskip
+
+\textsc{Basic Objects}
+
+Scalar Fields
+\[
+f: \mathbb{R}^3 \to \mathbb{R} \hspace{3mm} \longleftrightarrow \hspace{3mm} \left\{ \begin{array}{ll}
+ \mbox{0-forms defined on points}  \\
+ \mbox{3-forms defined on solids}
+\end{array} \right.
+\]
+
+\smallskip
+
+Vector Fields
+\[
+\vec{F}: \mathbb{R}^3 \to \mathbb{R}^3 \hspace{3mm} \longleftrightarrow \hspace{3mm} \left\{ \begin{array}{ll}
+\mbox{1-forms defined on curves} \\
+\mbox{2-forms defined on surfaces}  
+\end{array} \right.
+\]
+
+\smallskip
+
+Vector fields can describe force fields (1-forms) or fluid flows(2-forms).  It can be useful to pass between the two.
+
+\[
+g_x\,dx\ + g_y\,dy\ + g_z\,dz\ \hspace{5mm} \longleftrightarrow \hspace{5mm} g_x\,dydz\ + g_y\,dzdx\ + g_z\,dxdy\
+\]
+
+\bigskip
+
+\textsc{Basic Operators}
+
+Gradient, differential of a 0-form
+\[
+\nabla\cdot f = \left( \frac{\partial{f_x}}{\partial{x}}, \frac{\partial{f_y}}{\partial{y}}, \frac{\partial{f_z}}{\partial{z}} \right)
+\]
+
+\smallskip
+
+Curl, differential of a 1-form
+
+\[
+\nabla \times \vec{F} = \left( \frac{\partial{\Bicycle_z}}{\partial{y}} - \frac{\partial{\Bicycle_y}}{\partial{z}}, \frac{\partial{\Bicycle_x}}{\partial{z}} - \frac{\partial{\Bicycle_z}}{\partial{x}}, \frac{\partial{\Bicycle_y}}{\partial{x}} - \frac{\partial{\Bicycle_x}}{\partial{y}} \right)
+\]
+
+\bigskip
+
+\section{$E = mc^2$}
+
+\textsc{Maxwell's Equations}
+
+\begin{enumerate}
+\item \[
+\nabla \cdot \vec{B} = 0
+\]
+\item \[
+\nabla \times \vec{E} + \frac{\partial{B}}{\partial{t}} = 0
+\]
+\item\[
+\epsilon \nabla \cdot \vec{E} = \rho
+\]
+\item \[
+\nabla \times \vec{B} - \epsilon \mu \frac{\partial{\vec{E}}}{\partial{t}} = \mu \vec{J}
+\]
+\end{enumerate}
+
+For these equations, $\epsilon$ is the dielectric constant, $\rho$ is the charge density, $\vec{J}$ is current, and $\mu$ is a constant related to the medium through which the magnetic and electric fields are traveling.
+
+\bigskip
+
+\textsc{The Lorentz Transform}
+
+\begin{enumerate}
+\item \[
+x' = \gamma (x - vt)
+\]
+\item \[
+y' = y
+\]
+\item \[
+z' = z
+\]
+\item \[
+c^2t' = \gamma(c^2t - vx)
+\]
+\item\[
+\gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}
+\]
+\end{enumerate}
+
+It has been proven that there are no other valid spacetime transforms other than the Lorentz Transform.  $c$ is the speed of light, and $x'$ is just the direction of straight line travel.  The Lorentz Transform does not hold while turning.  Additionally, the $t'$ transform can also be written as 
+
+\[
+t' = \gamma \left(t - \frac{v}{c^2}x\right)
+\]
+
+\bigskip
+
+\textsc{Proof of the Lorentz Transform}
+
+For this proof, there are four postulates that must be obeyed.  They are:
+
+\begin{enumerate}
+\item $det \vec{L} > 0$ where $(x', y', z') = \vec{L}(x, y, z)$
+\item If the motion is in the x-direction, $y' = y$ and $z' = z$
+\item The x-transform is of the form $x' = \gamma(x - vt)$
+\item The d'Alembertian is invariant
+\end{enumerate}
+
+\smallskip
+
+The d'Alembertian is a function denoted by $\Box^2$.  $\varphi$ is a potential function.
+
+\[
+\Box^2(f) = \frac{\partial^2{f}}{\partial{x}^2} + \frac{\partial^2{f}}{\partial{y}^2} + \frac{\partial^2{f}}{\partial{z}^2} + \frac{1}{c^2}\frac{\partial^2{f}}{\partial{t}^2}
+\]
+
+Assume the $t'$ transform is of the form $t' = at + bx$.  To prove this, we will be findin the $a$, $b$, and $\gamma$ which make the d'Alembertian invariant.
+
+\begin{equation}
+\frac{\partial^2{\varphi}}{\partial{x}^2} = \frac{\partial}{\partial{x}}\left( \frac{\partial{\varphi}}{\partial{x'}}\cdot\frac{\partial{x'}}{\partial{x}} + \frac{\partial{\varphi}}{\partial{t'}}\cdot\frac{\partial{t'}}{\partial{x}} \right)
+\end{equation}
+
+\begin{equation}
+\frac{\partial^2{\varphi}}{\partial{x}^2} = \frac{\partial}{\partial{x}}\left( \frac{\partial{\varphi}}{\partial{x'}}\gamma \frac{\partial{\varphi}}{\partial{t'}}b \right)
+\end{equation}
+
+\begin{equation}
+\frac{\partial^2{\varphi}}{\partial{x}^2} = \gamma\left( \frac{\partial^2{\varphi}}{\partial{x'}^2}\cdot\frac{\partial{x'}}{\partial{x}} + \frac{\partial^2{\varphi}}{\partial{t'}\partial{x'}}\cdot\frac{\partial{t'}}{\partial{x}} \right) + b \left( \frac{\partial^2{\varphi}}{\partial{x'}\partial{t'}}\cdot\frac{\partial{x'}}{\partial{x}} + \frac{\partial^2{\varphi}}{\partial{t'}^2}\cdot\frac{\partial{t'}}{\partial{x}} \right)
+\end{equation}
+
+\begin{equation}
+\frac{\partial^2{\varphi}}{\partial{x}^2} = \gamma^2\frac{\partial^2{\varphi}}{\partial{x'}^2} + 2\gamma b\frac{\partial^2{\varphi}}{\partial{x'}\partial{t'}} + b^2\frac{\partial^2{\varphi}}{\partial{t'}^2}
+\end{equation}
+
+\bigskip
+
+Now we will do the same thing with $\frac{1}{c^2}\frac{\partial^2{\varphi}}{\partial{t}^2}$
+
+\begin{equation}
+\frac{\partial^2{\varphi}}{\partial{t}^2} = \frac{\partial}{\partial{t}}\left(\frac{\partial{\varphi}}{\partial{x'}}\cdot\frac{\partial{x'}}{\partial{t}} + \frac{\partial{\varphi}}{\partial{t'}}\cdot\frac{\partial{t'}}{\partial{t}} \right)
+\end{equation}
+
+\begin{equation}
+\frac{\partial^2{\varphi}}{\partial{t}^2} = \frac{\partial}{\partial{t}} \left( -v\gamma\frac{\partial{\varphi}}{\partial{x'}} + a\frac{\partial{\varphi}}{\partial{t'}} \right)
+\end{equation}
+
+\begin{equation}
+\frac{\partial^2{\varphi}}{\partial{t}^2} = -v\gamma\left(\frac{\partial^2{\varphi}}{\partial{x'}^2}\cdot\frac{\partial{x'}}{\partial{t}} + \frac{\partial^2{\varphi}}{\partial{t'}\partial{x'}}\cdot \frac{\partial{t'}}{\partial{t}} \right) + a\left( \frac{\partial^2{\varphi}}{\partial{x'}\partial{t'}}\cdot \frac{\partial{x'}}{\partial{t}} + \frac{\partial^2{\varphi}}{\partial{t'}^2}\frac{\partial{t'}}{\partial{t}}\right)
+\end{equation}
+
+\begin{equation}
+\frac{\partial^2{\varphi}}{\partial{t}^2} = v^2\gamma^2\frac{\partial^2{\varphi}}{\partial{x'}^2} - 2av\gamma\frac{\partial^2{\gamma}}{\partial{x'}\partial{t'}} + a^2\frac{\partial^2{\varphi}}{\partial{t'}^2}
+\end{equation}
+
+\smallskip
+
+We'll now set the d'Alembertians equal, and we can ignore the terms with respect to $y$, $y'$, $z$, and $z'$ as they are unchanged by the transformation. Since they both equal zero, they can set equal to one another.
+
+\begin{equation}
+\frac{\partial^2{\varphi}}{\partial{x}^2} - \frac{1}{c^2}\frac{\partial^2{\varphi}}{\partial{t}^2} = \left( \gamma^2 - \gamma^2\frac{v^2}{c^2} \right)\frac{\partial^2{\varphi}}{\partial{x'}^2} + \left( 2\gamma b + 2a\frac{v\gamma}{c^2}\right)\frac{\partial^2{\varphi}}{\partial{x'}\partial{t'}} + \left( b^2 - \frac{a^2}{c^2} \right)\frac{\partial^2{\varphi}}{\partial{t'}^2}
+\end{equation}
+
+In order to make these equations equal, we need to set the coefficients of the partials equal to $1$, $0$, and $-\frac{1}{c^2}$ respectively.  Thus,
+
+\begin{equation}
+\gamma^2 - \gamma^2 \frac{v^2}{c^2} = 1
+\end{equation}
+
+\begin{equation}
+\gamma^2 - \gamma^2 \frac{v^2}{c^2} = 0
+\end{equation}
+
+\begin{equation}
+b^2 - \frac{a^2}{c^2} = -\frac{1}{c^2}
+\end{equation}
+
+With these equations, we can find that:
+
+\begin{equation}
+\gamma^2 = \frac{1}{1 - \frac{v^2}{c^2}} \Rightarrow \gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}}
+\end{equation}
+
+\begin{equation}
+b = -\frac{av}{c^2}
+\end{equation}
+
+\begin{equation}
+b^2c^2 = a^2 - 1 \Rightarrow a^2 \left(1 - \frac{v^2}{c^2}\right) = 1
+\end{equation}
+
+\begin{equation}
+a^2\left(1 - \frac{v^2}{c^2}\right) = 1 \Rightarrow a^2\gamma^{-2} = 1 \Rightarrow a = \gamma
+\end{equation}
+
+\begin{equation}
+b = -\frac{av}{c^2} \Rightarrow b = -\frac{v}{c^2}\gamma
+\end{equation}
+
+Thus, our x- and t- transform become:
+
+\[
+x' = \gamma(x - vt), \hspace{2mm} \gamma = \frac{1}{1 - \frac{v^2}{c^2}}
+\]
+
+and
+
+\[
+t' = \gamma t - \frac{v}{c^2}\gamma x = \gamma \left( t - \frac{v}{c^2}x \right)
+\]
+
+\end{document}

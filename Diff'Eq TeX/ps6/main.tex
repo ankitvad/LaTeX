@@ -1,0 +1,350 @@
+\documentclass[11pt,answers]{exam}
+
+% Load useful packages
+% Read in necessary packages
+\usepackage{import}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{subfigure}
+\usepackage{tikz}
+
+% Set various options for exam package
+\shadedsolutions % defines the style of the solution environment
+
+% Set lesson name, etc.
+\newcommand{\coursename}{Math 312}
+\newcommand{\lessonname}{Problem Set 6}
+\newcommand{\duedate}{26 March 2016}
+\newcommand{\names}{Ian Gallmeister, Kevin Fortune, Alex Webb}
+
+% Set headers/footers to look nice
+\pagestyle{headandfoot}
+\firstpageheader{\textbf{\large \coursename\ \lessonname}}{}{\textbf{\large Due \duedate}}
+\firstpageheadrule
+\runningheader{\textbf{\large \coursename\ \lessonname}}{}{\textbf{\large Due \duedate}}
+\runningheadrule
+\firstpagefooter{\names}{}{Page \thepage\ of \numpages}
+\firstpagefootrule
+\runningfooter{\names}{}{Page \thepage\ of \numpages}
+\runningfootrule
+
+% Define commands related to marking up content
+\newcommand{\source}[1]{}
+
+% Define commands related to general mathematical style
+\renewcommand{\exp}[1]{e^{#1}}
+
+\renewcommand{\theenumi}{(\textsc{\alph{enumi}})}
+\renewcommand{\labelenumi}{\theenumi}
+\renewcommand{\thequestion}{\arabic{question}}
+\renewcommand{\questionlabel}{(\thequestion)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{questions}
+
+\addtocounter{question}{29}
+\item Find a dimensionless product relating to the torque $\tau \: (ML^2T^{-2})$ produced by an automobile engine, the engine's rotation rate $\psi \: (T^{-1})$, the volume $V$ of air displaced by the engine, and the air density $\rho$.\\
+(b) If we double the displacement volume (keeping all other engine properties fixed), how
+
+much does the torque increase?
+\begin{solution}
+The dimensions of $\tau$, $\psi$, $V$, and $\rho$ are the following: 
+\begin{equation*}
+[\tau] = ML^2T^{-2}
+\end{equation*}
+\begin{equation*}
+[\psi] = T^{-1} 
+\end{equation*}
+\begin{equation*}
+[V]= L^3 
+\end{equation*}
+\begin{equation*}
+[\rho] = ML^{-3} 
+\end{equation*}
+So now we can write: 
+\begin{equation*}
+\Pi = \tau ^a \psi^b V^c \rho^d
+\end{equation*}
+and 
+\begin{equation*}
+[\Pi] = (ML^2T^{-2})^a (T^{-1})^b (L^3)^c (ML^{-3})^d
+\end{equation*}
+To solve for a,b,c, and d, we need to rewrite this equation by grouping common terms.
+\begin{equation*}
+[\Pi] = M^{a+d}L^{2a + 3c-3d}T^{-2a-b}
+\end{equation*}
+Now we can set the exponents equal to zero to ensure that the equation is dimensionless.
+\begin{equation*}
+a+d = 0 
+\end{equation*}
+\begin{equation*}
+2a + 3c - 3d = 0 
+\end{equation*}
+\begin{equation*}
+-2a-b = 0
+\end{equation*}
+Now we have 3 equations and 4 unknowns. Let $a = 1$. This gives us $b = -2, c = -\frac{5}{3}$, and $d = -1 $. Plugging these equations back in to equation (1), we get:
+\begin{equation*}
+\Pi = \tau ^1 \psi^{-2} V^{-\frac{5}{3}} \rho^{-1}
+\end{equation*}
+\begin{equation*}
+\Pi = \frac{\tau}{ \psi^{2} V^{\frac{5}{3}} \rho}
+\end{equation*}
+Finally, employing the Buckingham Pi Theorem:
+\begin{equation*}
+f(\frac{\tau}{ \psi^{2} V^{\frac{5}{3}} \rho}) = 0
+\end{equation*}
+Assume the root of the function has the value $k$.
+\begin{equation*}
+k = \frac{\tau}{ \psi^{2} V^{\frac{5}{3}} \rho}
+\end{equation*}
+this gives us the final solution:
+\begin{equation*}
+\tau = k\psi^{2} V^{\frac{5}{3}} \rho 
+\end{equation*}
+(b) Doubling V gives us
+\begin{equation*}
+\tau = k\psi^{2} (2V)^{\frac{5}{3}} \rho 
+\end{equation*}
+\begin{equation*}
+\tau = 2^{\frac{5}{3}}(k\psi^{2} V^{\frac{5}{3}} \rho)
+\end{equation*}
+We can see that doubling the displacement volume increases $\tau$ by a factor of $2^{\frac{5}{3}}$.
+\end{solution}
+
+\item Certain stars, whose light and radial velocities undergo periodic vibrations, are thought to be pulsating.  It is hypothesized that the period $t$ of pulsation depends on the star's radius, $r$, its mass $m$, and the gravitational constant $G$.  Express $t$ as a product of $m$, $r$, and $G$, so the equation $t = m^a r^b G^c$ is dimensionally compatible.
+\begin{solution}
+The dimensions of $m$, $r$, $t$, and $G$ are the following:
+\begin{equation*}
+[m] = M
+\end{equation*}
+\begin{equation*}
+[r] = L
+\end{equation*}
+\begin{equation*}
+[t] = T
+\end{equation*}
+\begin{equation*}
+[G] = \frac{Fr^2}{m_1m_2} = \frac{(MLT^{-1})(L^2)}{M^2} = \frac{L^3}{MT^2}
+\end{equation*}
+Now we can write an expression for $\Pi$.
+\begin{equation*}
+\Pi = m^ar^bG^ct^d
+\end{equation*}
+\begin{equation*}
+[\Pi] = M^aL^b(L^3M^{-1}T^{-2})^cT^d
+\end{equation*}
+\begin{equation*}
+[\Pi] = M^{a-c}L^{b+3c}T^{-2c + d}
+\end{equation*}
+Now we can set each exponent equal to zero.
+\begin{equation*}
+a-c = 0
+\end{equation*}
+\begin{equation*}
+b+ 3c = 0
+\end{equation*}
+\begin{equation*}
+-2c + d = 0
+\end{equation*}
+Because we have three equations and four unknowns, we need to assign one variable a value. Let a = 1. This gives us b = -3, c = 1, and d = 2. Now we have values that will give us a dimensionally compatible equation. We find a solution to be
+\begin{equation*}
+t^2 = mr^{-3}G
+\end{equation*}
+
+\end{solution}
+
+\item A nuclear blast creates a wavefront that can be observed with the human eye, as in these actual photographs of the bomb explosion.
+\begin{enumerate}
+\item Assume that the radius $R$ of the wavefront depends of $t$, on the ambient density $\rho$ of the air, and on the energy $E$ of the explosion.  Use dimensional analysis to find an expression for the wavefront radius.
+\item Your answer to \textsc{(a)} should involve a constant that you introduce.  From physical arguments, Taylor deduced that this constant should be approximately 1.  Take the base-10 logarithm of the equation obtained as your answer to \textsc{(a)} to find an expression for the base-10 log of the blast radius.
+\item From a movie taken of the blast, Taylor fit the available data ($R$ in meters and $t$ in seconds) to that the equation $\log_{10}R = 0.38\log_{10}t + 2.7$ was the best fit line.  Using the equation and the fact that the ambient density of air $\rho = 1$ kg/m$^3$, calculate $E$.  Give your answer in scientific notation with two significant digits.
+\end{enumerate}
+\begin{solution}
+\newline\textsc{(a)}
+The relevant quantities are $[R] = L, [t] = T, [\rho] = ML^{-3}, [E] = ML^2T^{-2}$.  To find a $\pi$, we set $\pi = R^A t^B \rho^C E^D$ so
+\[
+[\pi] = L^AT^B(ML^{-3})^C(ML^2T^{-2})^D = L^{A - 3C + 2D}T^{B-2D}M^{C+D}
+\]
+This gives us three equations for four unknowns, so we can set $A = 1$ so we have a simple way to remove $R$ from the function.  Then we can solve for $D = 1.5C - 0.5$ and substitute to get  $C + 1.5C - 0.5 = 0 \Rightarrow C = 1/5$.  With this, we can find that $D = -1/5$ and $B = -2/5$.  Therefore, $\displaystyle \pi = \frac{R\rho^{1/5}}{t^{2/5}E^{1/5}}$.  By the Buckinham Pi theorem there if a function $f$ such that
+\[
+f\left(\frac{R\rho^{1/5}}{t^{2/5}E^{1/5}}\right) = 0
+\]
+so we can set $(R\rho^{1/5})/(t^{2/5}E^{1/5}) = k$ and then we can rearrange the equation to find that $\displaystyle R = \frac{kt^{2/5}E^{1/5}}{\rho^{1/5}}$
+
+\vspace{1em}
+
+\textsc{(b)} We'll use $\log$ to be $\log_{10}$ for ease of TeXing.
+\[
+\log{R} = \log{k} + \frac{2}{5}\log(t) + \frac{1}{5}\log{E} - \frac{1}{5}\log{\rho}
+\]
+
+\vspace{1em}
+
+\textsc{(c)} The line of best fit is that $\log{R} = 0.39\log{t} + 2.7$.  We know that $k \approx 1$ and $\rho = 1$, so those two terms are zero in the log equation.  That leaves us with the constant $2.7$ to equal $0.2\log{E}$.  Therefore
+\[
+10^{(2.7*5 = \log{E})} \Rightarrow E \approx 10^{13.5} J = 3.2 \times 10^{10} kJ
+\]
+(Units in $J$ or $kJ$ because $[\rho] =$ kg/m$^3$ and $[R] = m$, etc...)
+\end{solution}
+
+\item There is a fishery model
+\[
+\dot{N} = rN\left(1 - \frac{N}{k}\right) - H\frac{N}{A + N}
+\]
+Show that the system can be rewritten in dimensionless form as
+\[
+\frac{\partial{x}}{\partial{\tau}} = x(1-x) - h\frac{x}{a + x}
+\]
+\begin{solution}
+Our variables and parameters are
+\[
+\begin{array}{l|l}
+[N] = N & [\dot{N}] = NT^{-1} \\
+\left[r\right] = T^{-1} & [H] = NT^{-1} \\
+\left[k\right] = N & [A] = N
+\end{array}
+\]
+with $[N]$ being the dependent variable and $[t]$ being the independent one.  We can say the units of $N$ come from $K$ and $t$ from $1/r$.  Then we can define $x = N/k$ so $N = kx$ and $\tau = rt$.  Now, we can find that 
+\[
+\frac{\partial}{\partial{t}} = \frac{\partial}{\partial{\tau}}\frac{\partial{\tau}}{\partial{t}} = r\frac{\partial}{\partial{\tau}}
+\]
+Now we can substitute and find that
+\begin{align*}
+rk\frac{\partial}{\partial{\tau}}(x) &= rkx(1 - \frac{kx}{k}) - H\left(\frac{kx}{A + kx}\right) \\
+\frac{\partial{x}}{\partial{\tau}} &= x(1 - x) - \frac{H}{rk}\left( \frac{k}{k}\cdot\frac{x}{\frac{A}{k} + x} \right)
+\end{align*}
+If we define $a = A/k$ and $h = H/rk$ we turn the equation into
+\[
+\frac{\partial{x}}{\partial{\tau}} = x(1-x) - h\left(\frac{x}{a + x}\right)
+\]
+\end{solution}
+
+\item Suppose gene $G$ is activated by a signal substance $S$ when the concentration exceeds a certain threshold.  Let $g(t)$ be the concentration of the gene product and assume the concentration $s_0$ of $S$ is fixed.  The model is
+\[
+\dot{g} = k_1s_0 - k_2g + \frac{k_3g^2}{k_4^2 + g^2}
+\]
+where the $k$s are positive constants.  The production of $g$ is stimulated by $s_0$ at a rate $k_1$ and by an autocatalytic or positive feedback process.  There is also linear degradation of $g$ at a rate $k_2$.
+\newline\newline Show that the system can be put in the dimensionless form
+\[
+\frac{\partial{x}}{\partial{\tau}} = s - rx + \frac{x^2}{1 + x^2}
+\]
+\begin{solution}
+
+First, state the dimensions of all variables and parameters:
+
+[$\dot{g}$] = G$T^-1$
+[g] = G
+[t] = T
+[$s_{o}$] = S
+[$k_{1}$] = $S^-1GT^-1$
+[$k_{2}$] = $T^-1$
+[$k_{3}$] = $GT^-1$
+[$k_{4}$] = G
+
+Second, write non-dimensionalized versions of g and t:
+
+$$\hat{g} = g/k_{4}$$
+$$g = k_{4}\hat{g}$$
+$$\hat{t}= tk_{3}$$
+$$\frac{d}{dt} = \frac{d\hat{t}}{dt}\frac{d}{d\hat{t}} = \frac{k_{3}}{k_{4}}\frac{d}{d\hat{t}}$$
+
+Third, substitute the non-dimensional variables into the equation and simplify:
+
+$$\dot{g} = k_1s_0 - k_2g + \frac{k_3g^2}{k_4^2 + g^2}$$
+
+$$\frac{k_3k_4}{k_4}\dot{\hat{g}} = k_1s_0 - k_2k_4\hat{g} + \frac{k_3k_4^2\hat{g}^2}{k_4^2 + k_4^2\hat{g}^2}$$
+
+$$\dot{\hat{g}} = \frac{k_1s_0}{k_3} - \frac{k_2k_4}{k_3}\hat{g} + \frac{\hat{g}^2}{1 + \hat{g}^2}$$
+
+Finally, define the groups of parameters as dimensionaless paramters A and B. The units of the groups of parameters cancel so that every term is dimensionless:
+
+$$\dot{\hat{g}} = s - r\hat{g} + \frac{\hat{g}^2}{1 + \hat{g}^2}$$
+
+\end{solution}
+
+\item Earlier in this class, you studied a model of the horizontal displacement $x(t)$ of the second floor of a building oscillating subject to an earthquake. This problem is related. We begin with a similar model,
+\[
+m\ddot{x} + \gamma\dot{x} + kx = mA_0\omega^2\sin{\omega t}
+\]
+Here, $m$ is the mass of the second floor, $\gamma$ is the strength of frictional damping, $k$ is a spring constant, $A_0$ measures the strength of the earthquake, and $\omega$ is the frequency of shaking caused by the earthquake.
+\begin{enumerate}
+\item State the dimensions of all variables and parameters appearing in the model.
+
+\begin{solution}
+
+[$\ddot{x}$] = L$T^-2$
+[$\dot{x}$] = L$T^-1$
+[x] = L
+[t] = T
+[m] = M
+[$\gamma$] = $MT^-1$
+[K] = $MT^-2$
+[$\omega$] = $T^-1$
+[$A_0$] = L
+\end{solution}
+
+\item write the model in dimensionless form.  Please nondimensionalize time by using the frequency of the quake.  Your final answer should be a differential equation with dimensionless variables and parameters (rename groups of dimensioned ones if needed).
+
+\begin{solution}
+
+First, non-dimensionalize each variable:
+
+$$\hat{x} = x/A_0$$
+$$x = \hat{x}A_0$$
+$$ \hat{t} = t\omega $$
+$$\frac{d}{dt} = \frac{d\hat{t}}{dt}\frac{d}{d\hat{t}} = \omega\frac{d}{d\hat{t}}$$
+
+Second, substitute the non-dimensionalized variables into the equation:
+
+$$A_0m\omega^2\ddot{\hat{x}} + A_0\omega\gamma\dot{\hat{x}} + kA_0\hat{x} = mA_0\omega^2\sin{t}$$
+
+$$\ddot{\hat{x}} + \frac{\gamma}{m\omega}\dot{\hat{x}} + \frac{k}{m\omega^2}\hat{x} = \sin{t}$$
+
+Rename the groups of parameters as A and B:
+
+$$\ddot{\hat{x}} + A\dot{\hat{x}} + B\hat{x} = \sin{t}$$
+
+\end{solution}
+\item Assume that the natural frequency of the second floor (that is, the frequency in the absence of an earthquake, and even in the absence of damping) is negligible compared to the frequency of the earthquake. Your equation simplifies in this case. Write down your simplified equation.
+
+\begin{solution}
+
+The term $B\hat{x}$ is associated with the natural frequency of the building. We know this because B contains k, the spring constant of the building. The spring constant is a property of the building, so the whole term must be associated with the building. Therefore, we remove this term to neglect the natural frequency of the building:
+
+$$\ddot{\hat{x}} + A\dot{\hat{x}} = \sin{t}$$
+
+\end{solution}
+
+\item Your resulting equation can be further simplified by integrating in time once. Please do this. To find the constant of integration, assume that the second floor’s initial position and velocity are zero.
+
+\begin{solution}
+
+Integration via separation of variables yields:
+
+$$\dot{\hat{x}} + A\hat{x} = -\cos{t} + C_1$$
+
+Given the initial conditions $x(0)$ = 0 and $\dot{x}(0)$ = 0, $C_1$ = 1
+
+\end{solution}
+
+\item Discuss how your answer to part (d) is simpler than the original equation (think about parameters and also about phase space).
+
+\begin{solution}
+The equation in part d is simpler for 2 reasons:
+
+1. There is only one parameter in simple solution. The original equation had five parameters. This is important, for example, with numerical solutions, because the solution would have to be tested only for a range of values of one parameter rather than 5 parameters.
+
+2. The phase space in the simple solution is linear. It is much easier to observe and predict the behavior  of a linear differential equation than a non-linear one.
+\end{solution}
+
+\end{enumerate}
+
+
+\end{questions}
+\end{document}

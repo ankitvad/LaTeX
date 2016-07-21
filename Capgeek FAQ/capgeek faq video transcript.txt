@@ -1,0 +1,219 @@
+My name is Andy Scott, and I'm a Certified Player Agent with Octag8n Hockey.  I'm also a lawyer, and I 
+teach sports law at the University of Ottawa Law School.
+
+I'm doing a series of talks dedicated to certain aspects of the 2013 Collective Bargaining Agreement.  In 
+the next discussion, I will explain the new CBA rules on contract variability for multi-year player 
+contracts.
+
+However, before looking at the rules under the current CBA, it'll be important to explain the background 
+regarding how we got to this point.  To properly understand the landscape, you need to know that as a very 
+general rule, the cap hit on a player is determined by taking the overall compensation of the contract and 
+dividing this by the number of years in the term of the contract.  Under the 2005 CBA, many NHL players 
+were signed to long-term, front-loaded contracts which means that higher salary amounts were paid in the 
+first years of a contract with lower salary amounts paid in the last years of the contract.  The major 
+reason for this structure was to artificially lower the Average Annual Value (AAV) of the contract with 
+what is referred to as "throwaway years" at the end of the contract.
+
+\bigskip
+\bigskip
+[On screen:
+\begin{tabular}{l|l|l|l}
+\textsc{Year of Contract} & \textsc{NHL Salary } & \textsc{AAV} & \textsc{Cap Hit} \\
+1 & \$7,000,000 & \$4,027,143 & \$4,027,143 \\
+2 & \$7,000,000 & \$4,027,143 & \$4,027,143 \\
+3 & \$6,500,000 & \$4,027,143 & \$4,027,143 \\
+4 & \$5,000,000 & \$4,027,143 & \$4,027,143 \\
+5 & \$1,500,000 & \$4,027,143 & \$4,027,143 \\
+6* & \$575,000 & \$4,027,143 & \$4,027,143 \\
+7* & \$575,000 & \$4,027,143 & \$4,027,143 \\
+\end{tabular}
+*Can be argued as "throwaway years"]
+\bigskip
+\bigskip
+
+These were called "throwaway years" because it was argued that a player would actually have no intention 
+of actually playing during those seasons, and so the NHL team could benefit from a lower cap hit on that 
+contract, which mean that the club's overall payroll exceeded the salary cap under the CBA. 
+[Transcription note: Holy run-on sentences Batman!]
+
+So, this was the big issue of the time, culminating in July 2010 when Ilya Kovalchuk signed a 17 year, 
+\$102 million deal with the New Jersey Devils that was structured to have him never sign another contract 
+until he was 44 years old.
+
+\bigskip
+\bigskip
+[On Screen:
+\begin{tabular}{l|l|l|l}
+\textsc{Year of Contract} & \textsc{NHL Salary } & \textsc{AAV} & \textsc{Cap Hit} \\
+1 & \$6,000,000 & \$6,000,000 & \$6,000,000 \\
+2 & \$6,000,000 & \$6,000,000 & \$6,000,000 \\
+3 & \$11,500,000 & \$6,000,000 & \$6,000,000 \\
+4 & \$11,500,000 & \$6,000,000 & \$6,000,000 \\
+5 & \$11,500,000 & \$6,000,000 & \$6,000,000 \\
+6 & \$11,500,000 & \$6,000,000 & \$6,000,000 \\
+7 & \$11,500,000 & \$6,000,000 & \$6,000,000 \\
+8 & \$8,500,000 & \$6,000,000 & \$6,000,000 \\
+9 & \$6,500,000 & \$6,000,000 & \$6,000,000 \\
+10 & \$3,500,000 & \$6,000,000 & \$6,000,000 \\
+11 & \$750,000 & \$6,000,000 & \$6,000,000 \\
+12 & \$550,000 & \$6,000,000 & \$6,000,000 \\
+13 & \$550,000 & \$6,000,000 & \$6,000,000 \\
+14 & \$550,000 & \$6,000,000 & \$6,000,000 \\
+15 & \$550,000 & \$6,000,000 & \$6,000,000 \\
+16 & \$550,000 & \$6,000,000 & \$6,000,000 \\
+17 & \$550,000 & \$6,000,000 & \$6,000,000 \\
+\end{tabular}
+\bigskip
+\bigskip
+
+93\% of the contract was to be paid out in the first 10 years of the 17 year deal.]
+
+The deal was heavily front-loaded and would have paid Ilya \$95 million in the first 10 years and only 
+\$7 million in the last seven seasons.  It was by far the most aggressive front-loaded contract that had 
+been filed with the league, and the NHL responded by rejecting the deal on the grounds that it 
+circumvented the NHL's salary cap rules.  They argued that neither Kovalchuk nor the Devils expected Ilya 
+to play out his contract.  And therefore, artificially lowered the AAV of the contract.
+
+It is also worth noting that the NHL indicated that they were investigating the contracts of Roberto 
+Luongo, Marc Savard, Chris Pronger, and Marian Hossa.  In response to the NHL, the NHLPA filed a 
+grievance with respect to Kovalchuk contract, but the NHL's position was upheld in arbitration and Ilya's 
+contract was ultimately deemed a circumvention of the CBA's salary cap rules.  Now after the decision, 
+the NHL and the NHLPA agreed to settle the issue and passed new regulations that would govern salary cap 
+calculations for long term contracts for the remaining term of the 2005 CBA.  As part of this settlement, 
+the NHL dropped their investigations into the contracts of Luongo, Savard, Pronger, and Hossa, and 
+registered a revised contract for Ilya Kovalchuk for \$100 million over 15 years.  These regulations, 
+which won't be discussed here as they are no longer binding, paved the way for one of the NHL's top 
+priorities in negotiations for a new CBA in 2012.  And that was closing the loophole on heavily front-
+loaded contracts, and passing new rules that governed the variability of an NHL contract.  Now let's 
+discuss and deal with the new rules under the 2013 CBA.
+
+First of all, there are two sets of rules regarding contract variability.  Front-loaded contracts and all 
+other contracts.  Under the new CBA a contract is front-loaded if the average amount in the first half of 
+the deal is greater than the cap hit.  I'd not that if the deal is an odd number, say five years, you 
+just take 50% of the compensation of the middle year and count this as part of the first half.  Also, 
+please note that throughout this session, "compensation" will refer to salary and signing bonuses.
+
+Let's deal with front-loaded contracts first.  For a front-loaded contract, the variability in the first 
+three years is limited to 35% of the first year's compensation.  Let's say a player earns \$2,000,000 in the first year of their deal.  35% of \$2,000,000 is \$700,000, 
+and so the year to year variability of that deal cannot be greater than \$700,000.
+
+The second rule of front-loaded contracts is that the lowest year's compensation cannot be less than 50\% 
+of the highest year's compensation.  Going back to our player earning \$2,000,000 in the first year of a 
+front-loaded deal.  If that was his lowest year in terms of compensation, then he cannot earn more than 
+\$4,000,000 in any other year of the deal.
+
+\bigskip
+\bigskip
+[On Screen:
+\textsc{Example}
+\begin{itemize}
+\item First Year Compensation = \$2,000,000
+\item 35\% of Compensation = \$2,000,000 * 0.35 = \$700,000
+\item Therefore, the second year's compensation must be between \$1,300,000 and \$2,000,000.
+\item Max Compensation, Year 2 = \$2,700,000 (Under year-to-year variability rules)
+\item Max Compensation, Year 3 = \$3,400,000 (Also under year-to-year variability rules)
+\item Max Compensation, Year 4 = \$4,000,000 (Under total variability limit)]
+\bigskip
+\bigskip
+
+
+For all contracts other than front-loaded contracts, the 100% Rule applies.  Now this is arguably one of 
+the most confusing and misinterpreted rules in the CBA.  But once you break it down, it is actually quite 
+simple.  The first part of the rule involves the first two years of a multi-player contract [Note: multi-
+year player contract].  The variability between the first year and the second year of a contract cannot 
+exceed the lower of those two years.
+
+\bigskip
+\bigskip
+[On Screen:
+\begin{tabular}{l l l}
+ & \textsc{Valid} & textsc{Invalid} \\
+\textbf{Year} & \textbf{Compensation} & \textbf{Compensation} \\
+1 & \$2,000,000 & \$2,000,000 \\
+2 & \$4,000,000 & \$4,500,000 \\
+\end{tabular}]
+\bigskip
+\bigskip
+
+For instance, you may have a deal which pays \$2 million in year one and \$4 million in year two.  
+However, you cannot have a deal that pays \$2 million in year one and \$4.5 million in year two because 
+the variability would be greater than the lower of those two years being \$2 million.  The second part of 
+the rule involves variability during the subsequent years of the contract, and there is a different 
+treatment for decreases vs increases in player salary and bonuses.
+
+Let's deal with increases first.  Any increase in compensation cannot exceed the lower of the first two 
+years of the contract.  Going back to our example of a player earning \$2 million in year one and \$4 
+million in year two, the lower of those years is obviously \$2 million, and so the highest increase in 
+compensation from one year to the next for that contract is \$2 million.  
+
+\bigskip
+\bigskip
+[On Screen:
+\begin{tabular}{l l l}
+\textbf{Contract Year} & \textbf{Compensation} & \\
+1 & \$2,000,000 & \\
+2 & \$4,000,000 & \\
+3 & \$6,000,000 & Max Increase equal to lower of
+4 & \$8,000,000 & first two years compensation]
+\bigskip
+\bigskip
+
+Now, the rules for year-to-year variability are different when it comes to decreases in compensation.  
+Decreases in compensation may not exceed 50\% of the lesser of the first two years of the contract. So 
+this warrants an example.  Let's go back to our player that earns $\2 million in year one and \$4 million 
+in year two on a non-frontloaded contract.  From one year to the next, his contract may not decrease by 
+more than 50% of the lowest of his first two years, and the lowest amount in the first two years was \$2 
+million, as we discussed.  And so 50\% of \$2 million is \$1 million, and so he cannot have a decrease in 
+his compensation year to year by more than \$1 million.  So looking ahead to year three for that player, 
+if you're at \$2 million in year one and \$4 million in year two, he cannot make less than \$3 million in 
+year three.
+
+\bigskip
+\bigskip
+[On Screen:
+\begin{tabular}{l l l}
+\textbf{Contract Year} & \textbf{Compensation} & \\
+1 & \$2,000,000 & The maximum decrease
+2 & \$4,000,000 & allowed is \$1 million, 
+3 & \$3,000,000 & or half of year 1 - the
+4 & \$2,000,000 & lower of the first two]
+\bigskip
+\bigskip
+
+Now, another critical rule in the CBA involves the length of a player contract.  Under the old CBA, there 
+was no express limit on the number of contracts, or the number of years sorry, for a contract, with the 
+exception of players in the entry-level system.  Under the new CBA, the maximum term on a contract is 7 
+years unless a player is re-signing with the same team, in which case that term limit is 8 years. 
+[Repeats from farther perspective]
+
+So, to summarize our discussion today - on a front-loaded contract, the variability between years cannot 
+be greater than 35\% of the amount of the first year's compensation.  Also, on front-loaded contracts, 
+the lowest year's compensation may not be less than 50\% of the highest year's compensation.  With 
+respect to contracts that are not front loaded, the 100\% rule applies.  The first part of this rule 
+indicates that the variability between the first two years of a player contract may not exceed the 
+compensation in the lower of those two years.  Beyond the first two years of the contract, the increase 
+in compensation from one year to the next cannot exceed the lower of the first two years of that contract.  
+Again, this is for the 100\% rule.  And any decrease in compensation may not exceed 50\% of the lesser 
+amount of the first two years of the contract.  Also, a player cannot have a term greater than seven 
+years unless a player is re-signing with the same team, in which case they can be eight years.
+
+Okay, so first off, I know this stuff can get convoluted and somewhat confusing, but I want to thank 
+everyone for watching, and please to check out some of my other clips on other topics which include the 
+entry-level system, schedule A and B bonuses, and other provisions of the CBA.  Again, my name is Andy 
+Scott, and I'm an NHLPA Certified Agent.  If you have any questions, please contact me.  Thank you.
+
+\bigskip
+\bigskip
+[On Screen:
+Andy Scott
+Ottawa, ON
+Octagon Hockey
+160 Elgin Street, Suite 24
+Ottawa, Ontario K2P 2P7
+P: 613.238.5741
+F: 613.233.7074
+
+follow Andy on twitter
+@Andy_Scott15]
+\bigskip
+\bigskip

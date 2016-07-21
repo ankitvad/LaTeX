@@ -1,0 +1,161 @@
+\documentclass{article}
+\usepackage[margin=1.5in]{geometry}
+\begin{document}
+
+\textsc{\large{Orbital Mechanics Project}}
+
+\bigskip
+
+Ian Gallmeister
+
+\bigskip
+
+% Engaging intro
+% Each step of the solution is well motivated: the reader understands why you did it.
+% Paragraphs are clearly linked
+% Mathy stuff is used sparingly within paragraphs, complex equations are displayed
+% Sequences of displayed equations are never used without explanation of what's happening.
+% Explanations are simple and crisp.
+% Avoid passive voice
+
+
+Where are you?  Where am I?  What knows where we are?  Our phones do!  A lot of this has to do with cell phone networks and local Wi-Fi, but many smartphones also have a GPS reciever.  The GPS network is a system of satellites orbiting Earth and providing location data to us.
+
+To have all these satellites working together requires each one to take both Einstein's theories of general and special relativity into account, which is a fantastic achievement.  Luckily for us, the math about the orbits of these and all the other satellites is much simpler.
+
+For circular orbits, the equations are simplified until we find that the velocity($v$) and period($T$) of objects in orbit are:
+
+$$v = \sqrt{\frac{GM}{r}}$$ and $$T = \frac{2\pi}{\sqrt{GM}}$$  where $GM$ is Newton's gravitational constant multiplied by the Earth's mass and $r$ is the radius of the orbit.  For an elliptical path, $$T = \frac{2\pi}{\sqrt{GM}}\frac{\gamma^{3/2}}{(1-\epsilon^2)^{3/2}}$$ where $\frac{\gamma}{1 - \epsilon^2}$ is the semimajor axis - the longest distance across the satellite's path.
+
+When the orbit is elliptical, the equations change to reflect that.  We find equations for apogee ($\Xi$) and perigee($\Omega$) which are the farthest and closest distances, respectively, of any object orbiting the earth.  They are:
+
+$$\Xi = \frac{\gamma}{1 - |\epsilon|}$$ and $$\Omega = \frac{\gamma}{1 + |\epsilon|}$$
+
+Where $\epsilon$ is the eccentricity of the orbit and $\gamma$ is a constant.  In the of satellites orbiting earth, $$\gamma = \frac{K^2}{GM}$$ where $K$ is the rate at which area is being swept out by the satellite.  By Kepler's second law, $K$ is constant and so is $\gamma$.  $K$ can also be found as the dot product of $r$ and $v$, which simplifies to $rvsin{\phi}$.  This means that $\gamma$ can also be written as $$\gamma = \frac{r^2v^2sin^2{\phi}}{GM}$$
+
+Another important variable is $\epsilon$, eccentricity.  There are a few different equations for eccentricity, all of which will be useful for this.  In a circular orbit, $$\epsilon = 1 - \frac{rv^2}{GM}$$
+
+This equation is a simplification of the more general $$\epsilon^2 = sin^2{\phi}( 1 - \frac{rv^2}{GM})^2 + cos^2{\phi}$$
+
+The third useful equation for eccentricity is $$\epsilon^2 = 1 + \frac{rv^2sin^2{\phi}}{(GM)^2}(rv^2 - 2GM)$$
+
+In the interest of some practical examples, five problems to do with the orbits of satellites will follow.
+
+\bigskip
+\bigskip
+
+For the first four problems, a satellite has been fired to $6.7 * 10^6$ m from the center of the Earth.  At that point, the engines are cut off, and the satellite enters orbit.
+
+\bigskip
+
+\textbf{What velocity must the satellite have to maintain a circular orbit at this height?  What is the period ($T$)?}
+
+\bigskip
+
+Using the equations introduced above and with $ r = 6.7 * 10^6 $ and $ GM = 4 * 10^{14} $, one finds that $ v = 7726.7 m/s $ and period, $T = 5448.3s$
+
+\bigskip
+
+\textbf{ If another satelitte  has a velocity $v = 9000 m/s$, angle $\phi = \frac{\pi}{2}$, and $r = 6.7*10^6$ again; find the apogee, perigee, and period}
+
+\bigskip
+
+In order to use the equations for apogee ($\Xi$), perigee ($\Omega$), and period, we need to find the orbit's eccentricity.
+
+In order to do this, we can use a simplified equation for $\epsilon$ because the terms involving $\phi$, $sin{\phi}$ and $cos{\phi}$ are zero or one.  The simplified equation is: 
+
+$$\epsilon^2 = (1 - \frac{rv^2}{GM})^2$$
+
+which returns an eccentricity of $\epsilon = .35675$.  Now we need to find $\gamma$.  Using the equation for $\gamma$ which expands $K$ into $rvsin{\phi}$, we find that $\gamma = 9.09*10^6 m$. 
+
+\bigskip
+
+With these values, we can calculate apogee and perigee which are $1.4*10^7m$ and a perigee of $6.7*10^6m$ respectively.
+
+\smallskip
+
+We can then plug all these values into the period equation and get a period, $T = 10560s$
+
+\bigskip
+\bigskip
+
+\textbf{That same satellite has been having some problems.  Forutnately, the orbit won't degenrate, but we need to know the new apogee, perigee, and period.  All the previous variables other than $\phi$ are the same.  $\phi = \frac{\pi}{3}$ this time.}
+
+\smallskip
+
+Because so much is similar, we can use the same equations for apogee, perigee, period, and $\gamma$, but we will need a different eccentricity.
+
+Since $\sin{\phi}$ and $\cos{\phi}$ are no longer one and zero, respectively, we must use the unsimplified version of the eccentricity eqation from above.
+
+\bigskip
+
+This new $\epsilon = .5878$, and the new $\gamma = 6.817*10^6$.  Using these for apogee and perigee give new values of $1.65*10^7$ and $4.29*10^6$, respectively.  The period remains the same at $T = 10560s$.  We may have a problem after all.  The radius of the earth is about $6.37*10^6 m$, less than the perigee, so we may need to move the satelitte into a new orbit to avoid impact with the planet
+
+\bigskip
+\bigskip
+
+\textbf{  Now, we need to know the angle, $\phi$ for this one.  We already have the perigee ($\Omega = 6.5*10^6 m$), velocity ($v = 9000 m/s$, and radius ($r = 6.7*10^6m$).  While you're at it, could you find the apogee ($\Xi$), eccentricity ($\epsilon$), and period ($T$)?}
+
+\smallskip
+
+There are two equations we'll need to solve this: perigee and eccentricity.   We need to solve both $\Omega$ for $\epsilon$ for eccentricity or eccentricity squared and set them equal.  Under that, $$\epsilon = \frac{r^2v^2sin^2{\phi}}{{\Omega}GM} - 1$$ and we can use the third equation for eccentricity.  If we square the rearranged equation for $\Omega$, we find that 
+
+$$\epsilon^2 = \frac{r^4v^4sin^4{\phi}}{{\Omega}^2G^2M^2} - 2\frac{r^2v^2sin^2{\phi}}{{\Omega}GM} + 1 $$
+
+Both equations have a $1$ which can be subtracted from both sides and each remaining term has a factor of $$\frac{rv^2sin^2{\phi}}{GM}$$  which can be factored out to give the following eqation:
+
+$$\frac{rv^2sin^2{\phi}}{GM}(\frac{r^3v^2sin^2{\phi}}{\Omega^2GM} - \frac{2r}{\Omega}) = \frac{rv^2sin^2{\phi}}{GM}(\frac{1}{GM}(rv - 2GM))$$
+
+After cancelling the terms in front of both sides, one is left with only one $sin{phi}$ term.  After solving for $\phi$, one finds that:
+
+$$ \phi = \arcsin{\sqrt{\frac{\Omega^2GM}{r^3v^2}(\frac{rv^2}{GM} + \frac{2r}{\Omega} - 2)}}$$  which shows that $\phi = 1.4435$ radians.
+
+\smallskip
+
+With this $\phi$, we can find the eccentricity, $$\epsilon^2 = sin^2{\phi}(1 - \frac{rv^2}{GM})^2 - cos^2{\phi}$$ which ends up being $\epsilon = .3758$
+
+\smallskip
+
+Now we can use the apogee equation $$\Xi = \frac{\gamma}{1 - |\epsilon|} = \frac{r^2v^2sin^2{\phi}}{GM(1 - |\epsilon|)}$$ 
+
+By plugging in our calculated $\phi$ and $\epsilon$ and using the given values for $r$ and $v$, we find that the apogee $\Xi = 1.433*10^7$
+
+\smallskip
+
+Our final calculation is to find the period, $T$, given by $$\frac{2\pi}{\sqrt{GM}}\frac{\gamma^{3/2}}{(1 - \epsilon^2)^{3/2}}$$
+
+After altering the apogee equation just slightly (square the $\epsilon$ term and take the whole thing to the $\frac{3}{2}$ power) and multiplying by $\frac{2\pi}{\sqrt{GM}}$, we find that the period is about 10560s, just like in the previous two problems.
+
+\bigskip
+\bigskip
+
+\textbf{One of your rockets is in circular orbit at $r = 6.6*10^6m$.  You need to move it into a circular orbit at $7.0*10^6m$.  To do this, you need to execute a burn at any point to push the rocket in an eccentric orbit with an apogee at the $7.0*10^6m$.  Once the rocket reaches apogee, you burn again to catapault the rocket back into circular orbit.  Once it gets to the larger circular orbit, its velocity, $v = 7560m/s$.  You need to find the speed of the rocket instantaneously after the first burn and before the second burn.}
+
+\bigskip
+
+You'll probably need some new equations alongside the old ones.  We will need apogee and perigee again, but we'll leave perigee as $\Omega$ and rename apogee to $\Xi$ just for ease of algebra.
+
+The most important new equation is $v_{new} = v_{orig}*c$ where $c$ is a constant.  Since the first orbit is circular, and the radius at the time of a burn will be the perigee, the eccentricity there for both orbits are:
+
+$$\epsilon_{orig} = (\frac{rv^2}{GM} - 1)$$ and $$\epsilon_{new} = (\frac{r_2v_2^2}{GM} - 1) = (c^2\frac{rv^2}{GM} - 1) = c^2 - 1$$
+
+Now, because 
+
+$$\Omega = \frac{\gamma}{1 + |\epsilon|}$$ and $$\Xi = \frac{\gamma}{1 - |\epsilon|}$$  
+
+We can set $\gamma$ equal to itself and simplify.  This gives us the equation: $$\frac{\Xi - \Omega}{\Xi + \Omega} = |\epsilon|$$ which gives us an eccentricity, $\epsilon = .0294$.  We can now use $\epsilon$ to find $c$, which ends up being $1.015$.  With $c$, we can also find the velocity immediately after the first burn, $v = 7899m/s$.
+
+\smallskip
+
+We can now find the velocity immediately before the second burn.  After rearranging the apogee equation, we get: $$\Xi(1 - |\epsilon|) = \gamma = \frac{r^2v^2sin^2{\phi}}{GM}$$  Because the angle $\phi = \frac{\pi}{2}$ at apogee and perigee and because the radius at apogee is apogee, we can solve for $v$, and find that:
+
+$$v = \sqrt{\frac{GM(1 - |\epsilon|)}{\Xi}}$$ because $r = \Xi$ at apogee.  Once numbers are plugged into that equation, we find that $v = 7447.34 m/s$
+
+So overall, we accelerated from our original velocity to $7899 m/s$, and once we reached our desired radius from earth, we accelerated from the velocity then, $ 7447.34 m/s$ to a velocity which maintains a circular orbit, $7560 m/s$.
+
+\bigskip
+
+As one can see, while our GPS satellites need to take special and general relativity into account in order to give us accurate location data, finding our where our satellites are, how fast they are going, and what their path looks like is much simpler.  This is lucky for all Physics, Astronomy, and Math majors everywhere because the equations from special and general relativity can be fiendishly tricky and a great endeavour to solve, and I'm really quite unwilling to explore them.
+
+
+\end{document}

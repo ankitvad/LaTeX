@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=1.25in]{geometry}
+
+\title{Diff'Eq Test Corrections 2}
+\author{Ian Gallmeister}
+\date{March 2016}
+\setlength{\parindent}{0pt}
+\usepackage{datetime}
+\newdateformat{MDY}{\THEDAY \space \monthname[\THEMONTH] \THEYEAR}
+
+\begin{document}
+
+\Large
+\textsc{Diff'Eq Test Corrections 2}
+\newline \normalsize Ian Gallmeister
+\newline March 2016
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{15pt}{\Large \textbf{1}}
+ Consider the equation
+\[
+m\ddot{x} + \mu\dot{x} + kx = 0
+\]
+The term ``critical damping" refers to the case where the characteristic equation has a double root.  Show that in the critically damped case, for nonzero initial position and velocity, the solution crosses through $x = 0$ exactly once.
+
+\hangindent=20pt
+\vspace{10pt}\hspace{20pt}{\large\textsc{answer}}
+\newline First we need to find a solution to the differential equation.  Our polynomial, assuming $y = e^{\lambda t}$ is $m\lambda^2 + \mu\lambda + k = 0$ for which $\displaystyle\lambda = \frac{-1}{2m}\left(-\mu \pm \sqrt{\mu^2 - 4kt}\right)$.  Because this is critically damped, there is a repeated real root, so $\mu^2 = 4mk$ and $\lambda = -\mu/2m$.  Then we need a second solution (and here the test and the corrections start to diverge), which we can guess is $x_2 = te^{lambda t}$.  With that we can start calculating and;
+\begin{align*}
+    x_2 &= te^{\lambda t}, \:\:\:\: \lambda = \frac{-\mu}{2m} \\
+    \dot{x_2} &= e^{\lambda t}(1 + \lambda t) \:\:\:\: \mu^2 = 4mk \Rightarrow k = \frac{\mu^2}{4m} \\
+    \ddot{x_2} &= \lambda e^{\lambda t}(2 + \lambda t) \\
+    \\
+    0 &= m\left(\lambda e^{\lambda t}(2 + \lambda t)\right) + \mu\left(e^{\lambda t}(1 + \lambda t)\right) + k\left(te^{\lambda t}\right) \\
+    0 &= 2m\lambda + m\lambda^2t + \mu + \mu\lambda t + kt \\
+    0 &= 2m\mu + \mu + t\left( m\lambda^2 + \mu\lambda + k\right)\\
+    0 &= 2m\left(\frac{-\mu}{2m}\right) + \mu + t\left( m\frac{\mu^2}{4m^2} + \frac{-\mu^2}{2m} + \frac{\mu^2}{4m} \right) \\
+    0 &= -\mu + \mu + t \left( \frac{\mu^2}{4m} + \frac{\mu^2}{4m} - \frac{\mu^2}{2m} \right)
+\end{align*}
+And we can see that our guess for $x_2$ is correct.  Therefore, our solution is 
+\[
+x = C_1e^{\lambda t} + C_2te^{\lambda t} = (C_1 + C_2t)e^{\lambda t} \hbox{ for } \lambda = -\mu/2m
+\]
+There are two parts to this function - the exponential $e^{\lambda t}$ which will never hit zero and the linear $(C_1 + C_2t)$ term which will equal zero at $t = -\frac{C_1}{C_2}$.  That is only spot where the function will cross the x-axis.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagebreak
+\vspace{15pt}{\Large \textbf{2}} There is a hookean spring with a mass $m$ attached to the end and a decaying spring constant which starts at $k = k_0$ and decays exponentially in time with decay constant $-\alpha, \:\: \alpha > 0$.  The initial displacement is 1 and the initial velocity is 0.
+\newline\textsc{(a)} Model this problem as an IVP
+\newline\textsc{(b)} Take $m = k_0 = 1$ and $\alpha = 0.2$.  Approximate the solution with a cubic polynomial.
+\newline\textsc{(c)} Give the cubic's estimate at $t=1$.  Check it against MatLab's.
+
+\hangindent=20pt
+\vspace{10pt}\hspace{20pt}{\large\textsc{answer}}
+\newline \textsc{(a)} IVP:
+\begin{align*}
+    x_0 &= 1 \:\:\:\:\:\: v_0 = 0 \:\:\:\:\:\: k_0 = k_0 \\
+    \frac{\partial^2{x}}{\partial{t}^2} &= \frac{-kx}{m} \\
+    \frac{\partial{k}}{\partial{t}} &= -\alpha k \\
+    \frac{\partial{t}}{\partial{t}} &= 1
+\end{align*}
+We know $\ddot{x}$ using $\Sigma F = ma$ where the only force acting upon the spring-mass system is $-kx$, the spring force.
+\newline\newline\textsc{(b)} To find a third order power series approximation, we start with a generic series for $x$ and attempt to find the coefficients.  First, we find that, given the constant values, $k = e^{-t/5}$ and plug that into $\ddot{x}$.  Note, after adjusting the indices of $\ddot{x}$, we can reset $n$'s first value to zero because the terms for which $0 > n$ are all zero.
+\begin{align*}
+    x = \sum_{n = 0}^\infty a_nt^n & \hbox{\hspace{5em}}\ddot{x} = \sum_{n = 0}^\infty n(n-1)a_nt^{n-2} = \sum_{n=0}^\infty (n+2)(n+1)a_{n+2}t^{n+2} \\
+    e^{-t/5} &= \sum_{n=0}^\infty \frac{x^n}{n!} = \sum_{n=0}^\infty \frac{(-t)^n}{5^n n!} \\
+    \sum_{n=0}^\infty & (n+2)(n+1)a_{n+2}t^{n+2} = -\left(\sum_{n=0}^\infty \frac{(-t)^n}{5^n n!} \right)\left( \sum_{n = 0}^\infty a_nt^n\right)
+\end{align*}
+This last equation can be written as $\displaystyle\ddot{x} = \sum_{n=0}^\infty\left( \sum_{k=0}^n \binom{n}{k} a_k (-0.2)^{n-k} \right)t^n$, but this really isn't useful if we aren't using generator functions, and it's a lot simpler to just write out everything to the $t^3$ term and multiply:
+\[
+2a_2t^2 + 12a_3t^3 = -\left( 1 + \frac{-t}{5} + \frac{t^2}{50} - \frac{t^3}{750} \right) \left( a_0 + a_1t + a_2t^2 + a_3t^3 \right)
+\]
+This gives us:
+\[
+\begin{array}{cllll}
+    -2a_2t^2 - 12a_3t^3 &= a_0 &+ a_1t &+ a_2t^2 &+ a_3t^3 \\
+    & &+ \frac{-1}{5}a_0t &+ \frac{-1}{5}a_1t^2 &+ \frac{-1}{5}a_2t^3 \\
+    & & &+ \frac{1}{50}a_0t^2 &+ \frac{1}{50}a_1t^3 \\
+    & & & &+ \frac{-1}{750}a_0t^3
+\end{array}
+\]
+which simplifies to:
+\begin{align*}
+    -2a_2t^2 + -12a_3t^3 &= a_0 + \left(a_1 - \frac{-1}{5}a_0\right)t + \left(a_2 - \frac{1}{5}a_1 + \frac{1}{50}a_0\right)t^2 + \left( a_3 - \frac{1}{5}a_2 + \frac{1}{50}a_1 - \frac{1}{750}a_0 \right) \\
+    0 &= a_0 + \left(a_1 - \frac{-1}{5}a_0\right)t + \left(3a_2 - \frac{1}{5}a_1 + \frac{1}{50}a_0\right)t^2 + \left( 13a_3 - \frac{1}{5}a_2 + \frac{1}{50}a_1 - \frac{1}{750}a_0 \right)t^3
+\end{align*}
+Now we can find the values of our coefficients $a_i$.  $a_0 = 1$ because the initial position is 1.  $a_1 = 0$ because the initial velocity is 0, and both $a_0$ and $a_1$ are the position and velocity's respective only terms at $t = 0$.  Now we can use the equation above to find the values of $a_2$ and $a_3$ which equal zero.  We have from the $t^2$ term that $3a_2 - \frac{1}{5}a_1 + \frac{1}{50}a_0 = 0$ and from the $t^3$ term that $13a_3 - \frac{1}{5}a_2 + \frac{1}{50}a_1 - \frac{1}{750}a_0 = 0$.  With the first equation, we can plug in our values for $a_0$ and $a_1$ to get that $3a_2 +\frac{1}{50} = 0$ so $a_2 = \frac{-1}{150}$.  For the second, plugging in tells us that $13a_3 - \frac{1}{750} -\frac{1}{750} = 0$, so $a_3 = \frac{1}{375*13} = \frac{1}{4875}$.  Thus we can estimate $x$ as:
+\[
+x \approx 1 + \frac{-1}{150}t^2 +\frac{1}{4875}t^3
+\]
+\textsc{(c)} At $t=1$, the cubic says that $x \approx 0.994$.  I don't have the necessary access to MatLab to check it at this point.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{15pt}{\Large \textbf{3}}
+\[
+\dot{N} = N\left[r - a(N - b)^2\right], ~ N \geq 0
+\]
+\textsc{(a)} Where are the fixed points?
+\newline\textsc{(b)} What is the stability of the fixed points?
+
+\hangindent=20pt
+\vspace{20pt}\hspace{20pt}{\large\textsc{answer}}
+\newline\textsc{(a)} On the quiz, I put down $N = b \pm \sqrt{r/a}$ as the fixed points, but missed the obvious $N = 0$.
+\newline\textsc{(b)} Here, I drew a picture of the fixed points from part \textsc{(a)} which, in the absence of a fourth fixed point, shows that $N = 0$ is a stable fixed point because $\dot{N}$ is unstable at $N = b - \sqrt{r/a}$, so a point just less than that will go towards $N = 0$ and a point just above will go towards $N = b + \sqrt{r/a}$
+\end{document}

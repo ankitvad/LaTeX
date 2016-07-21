@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage[margin = 1.25in]{geometry}
+\begin{document}
+
+\textsc{When making Math, you may mix the partials when...}
+
+\smallskip
+
+Ian Gallmeister
+
+\bigskip
+\bigskip
+
+---
+
+\textbf{Our goal: To prove that mixed partial derivatives are equal when the partial derivatives exist within a neighborhood around a point (a, b) and the mixed partials are continuous at (a, b)}
+
+
+\bigskip
+
+First we need to define $\Delta(h, k)$.  $$\Delta(h, k) = \frac{f(a + h, b + k) - F(a + h, b) - f(a, b+k) + f(a, b)}{hk}$$  Then prove that $$\frac{\partial^2 f}{\partial{y}\partial{x}} = \lim_{k \to 0}(\lim_{h \to 0} \Delta(h, k))$$  and that $$\frac{\partial^2 f}{\partial{x}\partial{y}} = \lim_{h \to 0}(\lim_{k \to 0} \Delta(h, k))$$
+
+To start, $$\frac{\partial^2{f}}{\partial{y}\partial{x}} = \frac{\partial}{\partial{y}}(\frac{\partial}{\partial{x}}f(a, b)) =  \frac{\partial}{\partial{y}}(\lim_{h \to 0} \frac{1}{h} f(a + h, b) - f(a, b)$$
+
+Now we must take the derivative with respect to $y$ to each of the two terms from above, giving:
+
+$$\frac{\partial^2{f}}{\partial{y}\partial{x}} = \lim_{k \to 0}\frac{1}{k}(\lim_{h \to 0}\frac{1}{h} [f(a + h, b+ k) - f(a + h, b)] - [f(a, b + k) - f(a, b)]) = \lim_{k \to 0}(\lim_{h \to 0} \Delta(h, k)) $$  
+
+If we swap the order in which we take the derivatives, giving $\frac{\partial^2{f}}{\partial{x}\partial{y}}$, we find that the overall effect is to swap the order in which we take the limits, our desired result.
+
+\bigskip
+
+---
+
+\bigskip
+
+If we define $F(x) = f(x, b + k) - f(x, b)$ so that $$\Delta(h, k) = \frac{F(a + h) - F(a)}{hk}$$  This $\Delta(h, k)$ is equal to the one previously defined.  Prove that there's a point $a_1$ between $a$ and $a+k$ such that 
+
+$$\frac{F(a + h) - F(a)}{h} = F'(a_1) = \frac{\partial{f}}{\partial{x}}(a_1, b + k) - \frac{\partial{f}}{\partial{x}}(a_1, b)$$
+
+The Mean Value Theorem states that 
+
+$$\frac{f(\vec{b}) - f(\vec{a})}{|\vec{b} - \vec{a}|} = f'(\vec{c} ; \vec{u})$$ for some $\vec{c}$ between $\vec{a}$ and $\vec{b}$.  We must also assume that $\vec{F}$ is a scalar field, the directional derivative at $\vec{a}$ exists in every direction, and $\vec{F}$ exists on every point between $\vec{a}$ and $\vec{b}$.  This means that the derivative of $F(a_1)$, a function value between $a$ and $a + h$ where  $$F(a_1) = f(a_1, b + k) - f(a_1, b)$$ is: $$F'(a_1) = \frac{\partial{f}}{\partial{x}}(a_1, b+k) - \frac{\partial{f}}{\partial{x}}(a_1, b)$$
+which is what we set out to prove.
+
+\bigskip
+
+---
+
+
+
+\bigskip
+
+Next, show there's a point, $b_1$, between $b$ and $b+k$ such that $$\Delta(h, k) = \frac{F(a + h) - F(a)}{hk} = \frac{\partial^2{f}}{\partial{y}\partial{x}}(a_1,  b_1)$$
+
+By the mean value theorem,
+
+$$\frac{f(a + h, b) - f(a, b)}{a + h - a} = \frac{f(a + h, b) - f(a, b)}{h} = \frac{\partial{f}}{\partial{x}}(a_1)$$
+
+and 
+
+$$\frac{\partial}{\partial{y}}\left(\frac{\partial{f}}{\partial{x}}(a_1)\right)(b_1) = \frac{\left(f(a + h, b + k) - f(a + h, b)\right) - \left( f(a, b+ k) - f(a, b) \right)}{h(b + k - b)} = \Delta(h, k) = \frac{F(a + h) - F(a)}{hk}$$ which is what we set out to show.
+
+\bigskip
+
+---
+
+\bigskip
+
+
+Using the three previous exercises, prove that if $\partial^2{f} / \partial{x}\partial{y}$ and $\partial^2{f} / \partial{y}\partial{x}$ exist for all points sufficiently close to $(a, b)$ and if $\frac{\partial^2{f}}{\partial{y}\partial{x}}$ is continuous at $(a, b)$ then $$\frac{\partial^2{f}}{\partial{y}\partial{x}}(a, b) = \frac{\partial^2{f}}{\partial{x}\partial{y}}(a, b)$$
+
+The existence of a vector limit implies that the mixed partials are equal.  If $$\lim_{(h, k) \to (0, 0)}\left(\frac{\partial^2{f}}{\partial{x}\partial{y}}(a_1, b_1)\right) = \lim_{(a + h, b + k) \to (a, b)}\left(\frac{\partial^2{f}}{\partial{x}\partial{y}}(a_1, b_1)\right)$$ exists, it implies continuity and means that the two partials are equal.  This limit does exist, therefore the function is continuous at $(a, b)$ and the mixed partials are equal.
+
+\end{document}

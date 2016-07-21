@@ -1,0 +1,256 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1.25in]{geometry}
+\usepackage{amsmath}
+ \numberwithin{equation}{section}
+
+\title{Proof of Identity}
+\author{Ian Gallmeister }
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+In calculus, there are many integral identities which can be used to make integrals easier to solve.  Additionally, there are many ways to shorten integrals so they take up less space or make more sense from a physical viewpoint.  As such, we will be proving six of these identities.
+
+\smallskip
+
+As these identities are written in the shorter form, the best way to prove them is to expand them into differential forms and compare.  In order to help us do that, some more basic identities are listed in the next section.
+
+
+
+
+
+\section{Basic Identities}
+In order to prove these equations, there are a few identities which we use multiple times, and they are listed below:
+
+\begin{equation}
+dV = dxdydz
+\end{equation}
+
+\begin{equation}
+\frac{\partial{f}}{\partial{n}} = \bigtriangledown{f} \cdot \vec{n}
+\end{equation}
+
+\begin{equation}
+\bigtriangledown{f} = \left( \frac{\partial{f}}{\partial{x}} , \frac{\partial{f}}{\partial{y}} , \frac{\partial{f}}{\partial{z}} \right)
+\end{equation}
+
+\begin{equation}
+\bigtriangledown \times{f} = \left( \frac{\partial{f_z}}{\partial{y}} - \frac{\partial{f_y}}{\partial{z}} , \frac{\partial{f_x}}{\partial{z}} - \frac{\partial{f_z}}{\partial{x}} , \frac{\partial{f_y}}{\partial{x}} - \frac{\partial{f_x}}{\partial{y}} \right)
+\end{equation}
+
+\begin{equation}
+\int_S \vec{F} \cdot \,d\vec{r}\ = \int_S f_x\,dx\ + f_y\,dy\ + f_z\,dz\
+\end{equation}
+
+\begin{equation}
+\int_S \vec{F}\cdot{\vec{n}} \,d\sigma\ = \int_S f_x\,dydz\ + f_y\,dzdx\ + f_z\,dxdy\
+\end{equation}
+
+\begin{equation}
+\int_S \frac{\partial{f}}{\partial{n}} \,d\sigma\ = \int_S \frac{\partial{f_x}}{\partial{x}}\,dydz\ + \frac{\partial{f_y}}{\partial{y}}\,dzdx\ + \frac{\partial{f_z}}{\partial{z}}\,dxdy\
+\end{equation}
+
+\begin{equation}
+\int_S \bigtriangledown{\times{\vec{F}}\cdot{\vec{n}}}\,d\sigma\ = \int_{\partial{S}} \vec{F}\cdot{\,d\vec{r}}
+\end{equation}
+
+\begin{equation}
+\int_S \,d\omega\ = \int_{\partial{S}} \omega
+\end{equation}
+
+Additionally, since differentials are anticommutative, and $dxdydz = dydzdx$ $ = dzdxdy = dV$, I will automatically change those to $dxdydz$ or $dV$ the first time they appear.
+
+
+
+
+
+
+
+\section{Identity A}
+
+\[
+\int_{\partial{R}} \frac{\partial{f}}{\partial{n}} \,d\sigma = \int_R \bigtriangledown^2{f}\,dV\
+\]
+
+In order to solve this one, we apply identity (2.2) and (2.6) to the right hand side of the equation, and Stokes' theorem (2.9) to the remainder.  For the left hand side, we expand $\bigtriangledown^2{f}$ and $dV$, which gives us two equal integrals.
+
+\begin{equation}
+\int_{\partial{R}} \frac{\partial{f}}{\partial{n}} \,d\sigma = \int_{\partial{R}} \bigtriangledown{f}\cdot{n} \,d\sigma\ = \int_{\partial{R}} \frac{\partial{f}}{\partial{x}}\,dydz\ + \frac{\partial{f}}{\partial{y}}\,dzdx\ + \frac{\partial{f}}{\partial{z}}\,dxdy\
+\end{equation}
+
+\begin{equation}
+\int_{\partial{R}} \frac{\partial{f}}{\partial{x}}\,dydz\ + \frac{\partial{f}}{\partial{y}}\,dzdx\ + \frac{\partial{f}}{\partial{z}}\,dxdy\ = \int_R \frac{\partial^2{f}}{\partial{x}^2}\,dxdydz\ + \frac{\partial^2{f}}{\partial{y}^2}\,dydzdx\ + \frac{\partial^2{f}}{\partial{z}^2}\,dzdxdy
+\end{equation}
+
+\begin{equation}
+\int_R \frac{\partial^2{f}}{\partial{x}^2}\,dxdydz\ + \frac{\partial^2{f}}{\partial{y}^2}\,dydzdx\ + \frac{\partial^2{f}}{\partial{z}^2}\,dzdxdy = \int_R \left( \frac{\partial^2{f}}{\partial{x}^2} + \frac{\partial^2{f}}{\partial{y}^2} + \frac{\partial^2{f}}{\partial{z}^2} \right)\,dxdydz
+\end{equation}
+
+\begin{equation}
+\int_R \left( \frac{\partial^2{f}}{\partial{x}^2} + \frac{\partial^2{f}}{\partial{y}^2} + \frac{\partial^2{f}}{\partial{z}^2} \right)\,dxdydz = \int_R \bigtriangledown^2{f}\,dV\
+\end{equation}
+
+
+
+
+\section{Identity B}
+
+\[
+\int_{\partial{R}} f\frac{\partial{g}}{\partial{n}}\,d\sigma\ = \int_R f\bigtriangledown^2{g}\,dV\ + \int_R \bigtriangledown{f}\cdot{\bigtriangledown{g}}\,dV\ 
+\]
+
+On the left hand side, we have a version of the integral from identity A which we can use to expand the left hand side before applying Stokes' theorem.  We can contract this new integral into the right hand side of the identity.
+
+\begin{equation}
+\int_{\partial{R}} f\frac{\partial{g}}{\partial{n}}\,d\sigma\ = \int_{\partial{R}} f\left(\frac{\partial{g}}{\partial{x}}\,dydz\right) + f\left(\frac{\partial{g}}{\partial{y}}\,dzdx\right) + f\left(\frac{\partial{g}}{\partial{z}}\,dxdy\right)
+\end{equation}
+
+\begin{equation}
+= \int_R f\left(\frac{\partial^2{g}}{\partial{x}^2}\ + \frac{\partial^2{g}}{\partial{y}^2}\ + \frac{\partial^2{g}}{\partial{z}^2}\ \right)\,dxdydz\ + \left(\frac{\partial{f}}{\partial{x}}\frac{\partial{g}}{\partial{x}} + \frac{\partial{f}}{\partial{y}}\frac{\partial{g}}{\partial{y}} + \frac{\partial{f}}{\partial{z}}\frac{\partial{g}}{\partial{z}} \right)\,dxdydz\
+\end{equation}
+
+\begin{equation}
+= \int_R f\bigtriangledown^2{g}\,dV\ + \int_R \bigtriangledown{f}\cdot{\bigtriangledown{g}} \,dV\
+\end{equation}
+
+
+
+
+
+\section{Identity C}
+
+\[
+\int_R f\bigtriangledown^2{g} \,dV\ + \int_{\partial{R}} g\frac{\partial{f}}{\partial{n}}\,d\sigma\ = \int_R g\bigtriangledown^2{f} \,dV\ + \int_{\partial{R}} f\frac{\partial{g}}{\partial{n}}\,d\sigma\
+\]
+
+This problem uses identity B quite a bit.  By using rearranging the terms of B and substituting them for the terms of identity C, we can prove this identity is true without even expanding anything.
+
+\begin{equation}
+\int_{\partial{R}} g\frac{\partial{f}}{\partial{n}}\,d\sigma\ = \int_R g\bigtriangledown^2{f}\,dV\ + \int_R \bigtriangledown{f}\cdot\bigtriangledown{g} \,dV\
+\end{equation}
+
+\begin{equation}
+\int_R f\bigtriangledown^2{g} \,dV\ = \int_{\partial{R}} f\frac{\partial{g}}{\partial{n}} \,d\sigma\ -\int_R \bigtriangledown{f}\cdot\bigtriangledown{g}\,dV\
+\end{equation}
+
+By adding the two sides of (5.1) and (5.2), we get identity C
+
+
+
+
+\section{Identity D}
+
+\[
+\int_S \left(\bigtriangledown{f}\right) \times \vec{g} \cdot \vec{n} \,d\sigma\ = \int_{\partial{S}} f\vec{g}\cdot\,d\vec{r}\ - \int_S f\left(\bigtriangledown\times\vec{g}\right) \cdot{n} \,d\sigma\
+\]
+
+This identity will take a bit more work to prove.  Our first step is to expand the left hand side completely by taking the cross product of $\bigtriangledown{f}$ and $\vec{g}$.  Next we expand the first term of the right hand side and apply Stokes' theorem again. In the interest of conserving space, I rearranged the terms of the expansion at the same time as I applied the theorem.  Finally, I expanded the second term of the right hand side which, upon subtraction, cancels the terms which need to be removed in order to prove the identity.
+
+
+\begin{equation}
+\vec{H} = \left(\bigtriangledown{f}\right) \times{\vec{g}} = \left( g_z\frac{\partial{f}}{\partial{y}} - g_y\frac{\partial{f}}{\partial{z}} , g_x\frac{\partial{f}}{\partial{z}} - g_z\frac{\partial{f}}{\partial{x}} , g_y\frac{\partial{f}}{\partial{x}} - g_x\frac{\partial{f}}{\partial{y}} \right)
+\end{equation}
+
+\begin{equation}
+\int_S \left(\bigtriangledown{f}\right) \times \vec{g} \cdot \vec{n} \,d\sigma\ = \int_S \vec{H} \cdot\vec{n}\,d\sigma\ 
+\end{equation}
+
+\begin{equation}
+= \int_S \left( g_z\frac{\partial{f}}{\partial{y}} - g_y\frac{\partial{f}}{\partial{z}} \right) \,dydz\ + \left( g_x\frac{\partial{f}}{\partial{z}} - g_z\frac{\partial{f}}{\partial{x}} \right)\,dzdx\ + \left( g_y\frac{\partial{f}}{\partial{x}} - g_x\frac{\partial{f}}{\partial{y}} \right)\,dxdy\
+\end{equation}
+
+------------------------------------------------------------------------------------------------------------------------
+
+\begin{equation}
+\int_{\partial{S}} f\vec{g}\cdot\,d\vec{r}\ = \int_{\partial{S}} fg_x \,dx\ + fg_y\,dy\ + fg_z\,dz\
+\end{equation}
+
+\begin{multline}
+\int_{\partial{S}} fg_x \,dx\ + fg_y\,dy\ + fg_z\,dz\ \\ = \int_S \left( g_z\frac{\partial{f}}{\partial{y}} - g_y\frac{\partial{f}}{\partial{z}} \right)\,dydz\ + \left( g_x\frac{\partial{f}}{\partial{z}} - g_z\frac{\partial{f}}{\partial{x}} \right)\,dzdx\ + \left( g_y\frac{\partial{f}}{\partial{x}} - g_x\frac{\partial{f}}{\partial{y}} \right)\,dxdy\ \\ + f\left(\left( \frac{\partial{g_z}}{\partial{y}} - \frac{\partial{g_y}}{\partial{z}} \right) \,dydz\ + \left(\frac{\partial{g_x}}{\partial{z}} - \frac{\partial{g_z}}{\partial{x}}\right) \,dzdx\ + \left(\frac{\partial{g_y}}{\partial{x}} - \frac{\partial{g_x}}{\partial{y}}\right) \,dxdy\ \right)
+\end{multline}
+
+------------------------------------------------------------------------------------------------------------------------
+
+\begin{equation}
+\int_S f\left(\bigtriangledown\times{\vec{g}}\right) \cdot\vec{n}\,d\sigma\ = \int_S f\left( \left(\frac{\partial{g_z}}{\partial{y}} - \frac{\partial{g_y}}{\partial{z}}\right)\,dydz\ + \left(\frac{\partial{g_x}}{\partial{z}} - \frac{\partial{g_z}}{\partial{x}} \right)\,dzdx\ + \left( \frac{\partial{g_y}}{\partial{x}} - \frac{\partial{g_x}}{\partial{y}}\right)\,dxdy\ \right)
+\end{equation}
+
+The difference of $(6.5) - (6.6)$ is (6.3), thus proving the identity.
+
+
+
+
+
+
+\section{Identity E}
+
+\[
+\int_R \left(\bigtriangledown{f}\right)\cdot\vec{g}\,dV\ = \int_{\partial{R}} f\vec{g}\cdot\vec{n}\,d\sigma\ - \int_R f\left(\bigtriangledown\cdot\vec{g}\right) \,dV\
+\]
+
+Here we start by expanding the left hand side of the equation.    Next we expand the first expression on the right and apply Stokes' theorem and do the same for the second expression.  After subtracting the second expression of the right from the first, we find that the two sides are equal.
+
+\begin{equation}
+\int_R \left(\bigtriangledown{f}\right)\cdot\vec{g}\,dV\ = \int_R \left(\left(\frac{\partial{f}}{\partial{x}}\right)g_x + \left(\frac{\partial{f}}{\partial{y}}\right)g_y + \left(\frac{\partial{f}}{\partial{z}}\right)g_z\right)\,dV\
+\end{equation}
+
+
+\begin{equation}
+\int_{\partial{R}} f\vec{g}\cdot\vec{n}\,d\sigma\ = \int_{\partial{R}} fg_x\,dydz\ + fg_y\,dzdx + fg_z\,dxdy\
+\end{equation}
+
+
+\begin{equation}
+\int_{\partial{R}} fg_x\,dydz\ + fg_y\,dzdx + fg_z\,dxdy\ = \int_R \left(\frac{\partial{f}}{\partial{x}}g_x + \frac{\partial{f}}{\partial{y}}g_y + \frac{\partial{f}}{\partial{z}}g_z\right) + f\left(\frac{\partial{g_x}}{\partial{x}} + \frac{\partial{g_y}}{\partial{y}} + \frac{\partial{g_z}}{\partial{z}}\right)\,dV\
+\end{equation}
+
+\begin{equation}
+\int_R f\left(\bigtriangledown\cdot\vec{g}\right)\,dV\ = \int_R \left(f\left( \frac{\partial{g_x}}{\partial{x}}\right) + f\left(\frac{\partial{g_y}}{\partial{y}}\right) + f\left(\frac{\partial{g_z}}{\partial{z}}\right)\right)\,dV
+\end{equation}
+
+
+
+
+
+
+
+\section{Identity F}
+
+\[
+\int_R \left(\bigtriangledown\times\vec{f}\right)\cdot\vec{g}\,dV\ = \int_{\partial{R}} \vec{f}\times\vec{g}\cdot\vec{n}\,d\sigma\ + \int_R \vec{f}\cdot\left(\bigtriangledown\times\vec{g}\right)\,dV\
+\]
+
+As again, we start by expanding the left hand side of the equation.  Moving over to the right hand side, we start by taking the cross product of $\vec{f}$ and $\vec{g}$ before expanding the expression.  Next we apply Stokes' theorem and end up with a very long equation.  When we expand the second expression on the right, we find that the last line of (8.4), the first expression expanded, is the additive inverse of the expanded second expression.  This leaves us with two equal sides.
+
+\begin{equation}
+\int_R \left(\bigtriangledown\times\vec{f}\right)\cdot\vec{g}\,dV\ = \int_R \left(g_x\left(\frac{\partial{f_z}}{\partial{dy}} - \frac{\partial{f_y}}{\partial{z}}\right) + g_y\left(\frac{\partial{f_x}}{\partial{z}} - \frac{\partial{f_z}}{\partial{x}}\right) + g_z\left(\frac{\partial{f_y}}{\partial{x}} - \frac{\partial{f_x}}{\partial{y}}\right)\right)\,dxdydz\
+\end{equation}
+
+\begin{equation}
+\vec{H} = \vec{f}\times\vec{g} = \left(f_yg_z - f_zg_y , f_zg_x - f_xg_z , f_xg_y - f_yg_x\right)
+\end{equation}
+
+\begin{equation}
+\int_{\partial{R}} \vec{f}\times\vec{g}\cdot\vec{n}\,d\sigma\ = \int_{\partial{R}} \vec{H}\cdot\vec{n}\,d\sigma\ = \int_{\partial{R}} \left(f_yg_z - f_zg_y\right)\,dydz + \left(f_zg_x - f_xg_z\right)\,dzdx + \left(f_xg_y - f_yg_x\right)\,dxdy\
+\end{equation}
+
+\begin{multline}
+\int_{\partial{R}} \left(f_yg_z - f_zg_y\right)\,dydz + \left(f_zg_x - f_xg_z\right)\,dzdx + \left(f_xg_y - f_yg_x\right)\,dxdy\ = \\ \int_R g_x\left(\frac{\partial{f_z}}{\partial{y}} - \frac{\partial{f_y}}{\partial{z}}\right) + g_y\left(\frac{\partial{f_x}}{\partial{z}} - \frac{\partial{f_z}}{\partial{x}}\right) + g_z\left(\frac{\partial{f_y}}{\partial{x}} - \frac{f_x}{\partial{y}}\right) \\ + f_x\left(\frac{\partial{g_y}}{\partial{z}} - \frac{\partial{g_z}}{\partial{y}}\right) + f_y\left(\frac{\partial{g_z}}{\partial{x}} - \frac{\partial{f_x}}{\partial{z}}\right) + \left(\frac{\partial{g_x}}{\partial{y}} - \frac{\partial{g_y}}{\partial{x}}\right)\,dxdydz\
+\end{multline}
+
+\begin{equation}
+\int_R \vec{f} \cdot\left(\bigtriangledown\times\vec{g}\right)\,dV\ = \int_R f_x\left(\frac{\partial{g_z}}{\partial{y}} - \frac{\partial{g_y}}{\partial{z}}\right) + f_y\left(\frac{\partial{g_x}}{\partial{z}} - \frac{\partial{g_z}}{\partial{x}}\right) + f_z\left(\frac{\partial{g_y}}{\partial{x}} - \frac{\partial{g_x}}{\partial{y}}\right)\,dxdydz\
+\end{equation}
+
+
+
+\section{Conclusion}
+
+Thus, we have proven six different identities of vector integration. Each term of the identity looked very different in their shorter, condensed form until they were expanded into the simpler but less wieldy language of differential forms.  Once they were in this form, it was much easier to show that the integrals on each side of the equals sign were equal.  In the end, this ease made it so the proof took a while longer but simplified the comparison of each side considerably.
+
+
+
+\end{document}
